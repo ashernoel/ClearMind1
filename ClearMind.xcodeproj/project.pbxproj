@@ -3,10 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C925CED2B1D69B33C606E4D /* Pods_ClearMind_ClearMindUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E05C4DF5B19E35D6FCB67AF4 /* Pods_ClearMind_ClearMindUITests.framework */; };
+		60FD142560978369F9932B5B /* Pods_ClearMindTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B429A0665B7888AA9B6ACF7 /* Pods_ClearMindTests.framework */; };
+		8DE42C76558C84F9F884AA7F /* Pods_ClearMind.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C9F500AAB5FCC5DA84B01E1 /* Pods_ClearMind.framework */; };
+		FFB10DEE23974A1F000C71EF /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = FFB10DED23974A1F000C71EF /* awsconfiguration.json */; };
 		FFBE59892395F5E300A9FD53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBE59882395F5E300A9FD53 /* AppDelegate.swift */; };
 		FFBE598B2395F5E300A9FD53 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBE598A2395F5E300A9FD53 /* SceneDelegate.swift */; };
 		FFBE598D2395F5E300A9FD53 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBE598C2395F5E300A9FD53 /* ViewController.swift */; };
@@ -35,6 +39,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0302A90CBA9B5E74ACBB6A1A /* Pods-ClearMind.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClearMind.release.xcconfig"; path = "Target Support Files/Pods-ClearMind/Pods-ClearMind.release.xcconfig"; sourceTree = "<group>"; };
+		2C9F500AAB5FCC5DA84B01E1 /* Pods_ClearMind.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClearMind.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BDD27CAEAC320733936139D /* Pods-ClearMind.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClearMind.debug.xcconfig"; path = "Target Support Files/Pods-ClearMind/Pods-ClearMind.debug.xcconfig"; sourceTree = "<group>"; };
+		7C816B04F7F51BF7D1D7CD09 /* Pods-ClearMind-ClearMindUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClearMind-ClearMindUITests.debug.xcconfig"; path = "Target Support Files/Pods-ClearMind-ClearMindUITests/Pods-ClearMind-ClearMindUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		8B429A0665B7888AA9B6ACF7 /* Pods_ClearMindTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClearMindTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E05C4DF5B19E35D6FCB67AF4 /* Pods_ClearMind_ClearMindUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClearMind_ClearMindUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F654626CEA362CD90AD314B9 /* Pods-ClearMindTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClearMindTests.debug.xcconfig"; path = "Target Support Files/Pods-ClearMindTests/Pods-ClearMindTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F7FBF34DA4B0833A66AD2849 /* Pods-ClearMind-ClearMindUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClearMind-ClearMindUITests.release.xcconfig"; path = "Target Support Files/Pods-ClearMind-ClearMindUITests/Pods-ClearMind-ClearMindUITests.release.xcconfig"; sourceTree = "<group>"; };
+		FD5C2E67DE4C4A4C2990A21B /* Pods-ClearMindTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClearMindTests.release.xcconfig"; path = "Target Support Files/Pods-ClearMindTests/Pods-ClearMindTests.release.xcconfig"; sourceTree = "<group>"; };
+		FFB10DED23974A1F000C71EF /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = SOURCE_ROOT; };
 		FFBE59852395F5E300A9FD53 /* ClearMind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClearMind.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFBE59882395F5E300A9FD53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FFBE598A2395F5E300A9FD53 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DE42C76558C84F9F884AA7F /* Pods_ClearMind.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60FD142560978369F9932B5B /* Pods_ClearMindTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +86,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C925CED2B1D69B33C606E4D /* Pods_ClearMind_ClearMindUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C9686897BA747DBF66ABA3E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5BDD27CAEAC320733936139D /* Pods-ClearMind.debug.xcconfig */,
+				0302A90CBA9B5E74ACBB6A1A /* Pods-ClearMind.release.xcconfig */,
+				7C816B04F7F51BF7D1D7CD09 /* Pods-ClearMind-ClearMindUITests.debug.xcconfig */,
+				F7FBF34DA4B0833A66AD2849 /* Pods-ClearMind-ClearMindUITests.release.xcconfig */,
+				F654626CEA362CD90AD314B9 /* Pods-ClearMindTests.debug.xcconfig */,
+				FD5C2E67DE4C4A4C2990A21B /* Pods-ClearMindTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		EAF9E5A906A44B2120D021DA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2C9F500AAB5FCC5DA84B01E1 /* Pods_ClearMind.framework */,
+				E05C4DF5B19E35D6FCB67AF4 /* Pods_ClearMind_ClearMindUITests.framework */,
+				8B429A0665B7888AA9B6ACF7 /* Pods_ClearMindTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FFBE597C2395F5E300A9FD53 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +123,8 @@
 				FFBE599E2395F5E500A9FD53 /* ClearMindTests */,
 				FFBE59A92395F5E500A9FD53 /* ClearMindUITests */,
 				FFBE59862395F5E300A9FD53 /* Products */,
+				0C9686897BA747DBF66ABA3E /* Pods */,
+				EAF9E5A906A44B2120D021DA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,6 +141,7 @@
 		FFBE59872395F5E300A9FD53 /* ClearMind */ = {
 			isa = PBXGroup;
 			children = (
+				FFB10DED23974A1F000C71EF /* awsconfiguration.json */,
 				FFBE59882395F5E300A9FD53 /* AppDelegate.swift */,
 				FFBE598A2395F5E300A9FD53 /* SceneDelegate.swift */,
 				FFBE598C2395F5E300A9FD53 /* ViewController.swift */,
@@ -135,9 +178,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FFBE59AF2395F5E500A9FD53 /* Build configuration list for PBXNativeTarget "ClearMind" */;
 			buildPhases = (
+				0BFE7D1009225D339F528B42 /* [CP] Check Pods Manifest.lock */,
 				FFBE59812395F5E300A9FD53 /* Sources */,
 				FFBE59822395F5E300A9FD53 /* Frameworks */,
 				FFBE59832395F5E300A9FD53 /* Resources */,
+				7AC162E0383E7A52297590BE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -152,6 +197,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FFBE59B22395F5E500A9FD53 /* Build configuration list for PBXNativeTarget "ClearMindTests" */;
 			buildPhases = (
+				5EAB4C75F6EC85B1699C46A8 /* [CP] Check Pods Manifest.lock */,
 				FFBE59972395F5E500A9FD53 /* Sources */,
 				FFBE59982395F5E500A9FD53 /* Frameworks */,
 				FFBE59992395F5E500A9FD53 /* Resources */,
@@ -170,9 +216,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FFBE59B52395F5E500A9FD53 /* Build configuration list for PBXNativeTarget "ClearMindUITests" */;
 			buildPhases = (
+				5CBF46C9D227890DD77966DD /* [CP] Check Pods Manifest.lock */,
 				FFBE59A22395F5E500A9FD53 /* Sources */,
 				FFBE59A32395F5E500A9FD53 /* Frameworks */,
 				FFBE59A42395F5E500A9FD53 /* Resources */,
+				2EED60BDE4C656E6BBD2CCB7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -232,6 +280,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFB10DEE23974A1F000C71EF /* awsconfiguration.json in Resources */,
 				FFBE59952395F5E500A9FD53 /* LaunchScreen.storyboard in Resources */,
 				FFBE59922395F5E500A9FD53 /* Assets.xcassets in Resources */,
 				FFBE59902395F5E300A9FD53 /* Main.storyboard in Resources */,
@@ -253,6 +302,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0BFE7D1009225D339F528B42 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ClearMind-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2EED60BDE4C656E6BBD2CCB7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ClearMind-ClearMindUITests/Pods-ClearMind-ClearMindUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ClearMind-ClearMindUITests/Pods-ClearMind-ClearMindUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ClearMind-ClearMindUITests/Pods-ClearMind-ClearMindUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5CBF46C9D227890DD77966DD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ClearMind-ClearMindUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5EAB4C75F6EC85B1699C46A8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ClearMindTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7AC162E0383E7A52297590BE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ClearMind/Pods-ClearMind-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ClearMind/Pods-ClearMind-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ClearMind/Pods-ClearMind-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FFBE59812395F5E300A9FD53 /* Sources */ = {
@@ -432,9 +584,11 @@
 		};
 		FFBE59B02395F5E500A9FD53 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5BDD27CAEAC320733936139D /* Pods-ClearMind.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = KVS7WF34PR;
 				INFOPLIST_FILE = ClearMind/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -443,6 +597,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.clearmind.ClearMind;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Asher ClearMind Profile Testin";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -450,9 +605,11 @@
 		};
 		FFBE59B12395F5E500A9FD53 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0302A90CBA9B5E74ACBB6A1A /* Pods-ClearMind.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = KVS7WF34PR;
 				INFOPLIST_FILE = ClearMind/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -461,6 +618,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.clearmind.ClearMind;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "ClearMind Provisioning Profile";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -468,6 +626,7 @@
 		};
 		FFBE59B32395F5E500A9FD53 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F654626CEA362CD90AD314B9 /* Pods-ClearMindTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -490,6 +649,7 @@
 		};
 		FFBE59B42395F5E500A9FD53 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD5C2E67DE4C4A4C2990A21B /* Pods-ClearMindTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -512,6 +672,7 @@
 		};
 		FFBE59B62395F5E500A9FD53 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7C816B04F7F51BF7D1D7CD09 /* Pods-ClearMind-ClearMindUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -532,6 +693,7 @@
 		};
 		FFBE59B72395F5E500A9FD53 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F7FBF34DA4B0833A66AD2849 /* Pods-ClearMind-ClearMindUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

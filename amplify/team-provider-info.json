@@ -1,0 +1,32 @@
+{
+    "mobile": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-clearmind-mobile-203309-authRole",
+            "UnauthRoleArn": "arn:aws:iam::354650271346:role/amplify-clearmind-mobile-203309-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::354650271346:role/amplify-clearmind-mobile-203309-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-clearmind-mobile-203309-deployment",
+            "UnauthRoleName": "amplify-clearmind-mobile-203309-unauthRole",
+            "StackName": "amplify-clearmind-mobile-203309",
+            "StackId": "arn:aws:cloudformation:us-east-1:354650271346:stack/amplify-clearmind-mobile-203309/082d4110-1636-11ea-b294-12b57bb5da09",
+            "AmplifyAppId": "d2q0u9blbe7sl"
+        },
+        "categories": {
+            "auth": {
+                "clearmind04bc81fd": {
+                    "facebookAppId": "1408320285999896",
+                    "googleClientId": "653986047900-5jnnsjdb903pkb1t778q5vk0rpo3j928.apps.googleusercontent.com",
+                    "googleIos": "653986047900-5jnnsjdb903pkb1t778q5vk0rpo3j928.apps.googleusercontent.com",
+                    "amazonAppId": "q"
+                }
+            },
+            "notifications": {
+                "Pinpoint": {
+                    "Name": "clearmind-mobile",
+                    "Id": "37a6a0587b7342548da60b7f1f60ce3e",
+                    "Region": "us-east-1"
+                }
+            }
+        }
+    }
+}

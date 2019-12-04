@@ -1,0 +1,76 @@
+PODS:
+  - AWSAuthCore (2.12.2):
+    - AWSCore (= 2.12.2)
+  - AWSAuthUI (2.12.2):
+    - AWSAuthCore (= 2.12.2)
+    - AWSCore (= 2.12.2)
+  - AWSCognitoIdentityProvider (2.12.2):
+    - AWSCognitoIdentityProviderASF (= 1.0.1)
+    - AWSCore (= 2.12.2)
+  - AWSCognitoIdentityProviderASF (1.0.1)
+  - AWSCore (2.12.2)
+  - AWSFacebookSignIn (2.12.2):
+    - AWSAuthCore (= 2.12.2)
+    - FBSDKCoreKit (= 5.8)
+    - FBSDKLoginKit (= 5.8)
+  - AWSMobileClient (2.12.2):
+    - AWSAuthCore (= 2.12.2)
+    - AWSCognitoIdentityProvider (= 2.12.2)
+  - AWSPinpoint (2.12.2):
+    - AWSCore (= 2.12.2)
+  - AWSS3 (2.12.2):
+    - AWSCore (= 2.12.2)
+  - AWSUserPoolsSignIn (2.12.2):
+    - AWSAuthCore (= 2.12.2)
+    - AWSCognitoIdentityProvider (= 2.12.2)
+  - FBSDKCoreKit (5.8.0):
+    - FBSDKCoreKit/Basics (= 5.8.0)
+    - FBSDKCoreKit/Core (= 5.8.0)
+  - FBSDKCoreKit/Basics (5.8.0)
+  - FBSDKCoreKit/Core (5.8.0):
+    - FBSDKCoreKit/Basics
+  - FBSDKLoginKit (5.8.0):
+    - FBSDKLoginKit/Login (= 5.8.0)
+  - FBSDKLoginKit/Login (5.8.0):
+    - FBSDKCoreKit (~> 5.0)
+
+DEPENDENCIES:
+  - AWSAuthUI
+  - AWSFacebookSignIn
+  - AWSMobileClient
+  - AWSPinpoint
+  - AWSS3
+  - AWSUserPoolsSignIn
+
+SPEC REPOS:
+  trunk:
+    - AWSAuthCore
+    - AWSAuthUI
+    - AWSCognitoIdentityProvider
+    - AWSCognitoIdentityProviderASF
+    - AWSCore
+    - AWSFacebookSignIn
+    - AWSMobileClient
+    - AWSPinpoint
+    - AWSS3
+    - AWSUserPoolsSignIn
+    - FBSDKCoreKit
+    - FBSDKLoginKit
+
+SPEC CHECKSUMS:
+  AWSAuthCore: a67ecbfe4dfdb8470f85c31f9594476d5ed988a5
+  AWSAuthUI: e3c28579f4f2e0d52ac97f035873f97571b00278
+  AWSCognitoIdentityProvider: 5ac7b7af7877e7a47585c08d6a0ef58bcd6314b6
+  AWSCognitoIdentityProviderASF: f94f1a502e72ef3d0a1de93e10bf7a79c8698118
+  AWSCore: bdc0933bcb1aca4a9af3352a9e6ec75b339faf71
+  AWSFacebookSignIn: c95098cac931f3d5a6fca0bc37af216d21a5037f
+  AWSMobileClient: ed6cd3c6ecb935406bf392df81fc5b40f4660845
+  AWSPinpoint: b168db4f377fdc0ad27525e8114308c1a3a79fd4
+  AWSS3: 3ab1e1b25d3522d7745efd2a57a98a86d7524bd5
+  AWSUserPoolsSignIn: 6590fefdf30c720bb362c8b8acee6677bb5e2fe7
+  FBSDKCoreKit: e7dcac0aabcfb09d0166998edd95fe3b05a0ce5d
+  FBSDKLoginKit: 1b0cf04df0370b37404213157b060d6666ede814
+
+PODFILE CHECKSUM: 9a3e1ac721b60ba19d7695a2257bcfdfb0c827ed
+
+COCOAPODS: 1.8.4

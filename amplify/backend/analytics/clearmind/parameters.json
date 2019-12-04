@@ -1,0 +1,20 @@
+{
+    "appName": "clearmind",
+    "roleName": "pinpointLambdaRoled2a7b2d4",
+    "cloudWatchPolicyName": "cloudWatchPolicyd2a7b2d4",
+    "pinpointPolicyName": "pinpointPolicyd2a7b2d4",
+    "authPolicyName": "pinpoint_amplify_d2a7b2d4",
+    "unauthPolicyName": "pinpoint_amplify_d2a7b2d4",
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "authRoleArn": {
+        "Fn::GetAtt": [
+            "AuthRole",
+            "Arn"
+        ]
+    }
+}

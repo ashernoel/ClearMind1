@@ -1,0 +1,29 @@
+{
+	"auth": {
+		"clearmind04bc81fd": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": []
+		}
+	},
+	"analytics": {
+		"clearmind": {
+			"service": "Pinpoint",
+			"providerPlugin": "awscloudformation"
+		}
+	},
+	"notifications": {
+		"clearmind": {
+			"service": "Pinpoint",
+			"channels": [
+				"APNS"
+			]
+		}
+	},
+	"storage": {
+		"ClearMindFileStorage": {
+			"service": "S3",
+			"providerPlugin": "awscloudformation"
+		}
+	}
+}
