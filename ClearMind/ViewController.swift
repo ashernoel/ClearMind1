@@ -9,6 +9,7 @@
 import UIKit
 import AWSAuthCore
 import AWSAuthUI
+import AWSMobileClient
 
 class ViewController: UIViewController {
 
@@ -16,6 +17,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        AWSMobileClient.default().signOut()
         if !AWSSignInManager.sharedInstance().isLoggedIn {
            AWSAuthUIViewController
              .presentViewController(with: self.navigationController!,
@@ -27,8 +29,14 @@ class ViewController: UIViewController {
                          // Sign in successful.
                      }
                   })
+            print("not logged in")
         }
         
+    
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        performSegue(withIdentifier: "enterApp", sender: self)
     }
 
 

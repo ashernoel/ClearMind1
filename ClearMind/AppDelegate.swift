@@ -42,6 +42,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         registerForPushNotifications()
         
+        
+        
         return AWSMobileClient.default().interceptApplication(
              application, didFinishLaunchingWithOptions:
              launchOptions)
@@ -86,8 +88,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                                         preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
 
-            UIApplication.shared.keyWindow?.rootViewController?.present(
-                alert, animated: true, completion:nil)
+            //UIApplication.shared.keyWindow?.rootViewController?.present(
+              //  alert, animated: true, completion:nil)
+            
+            let keyWindow = UIApplication.shared.connectedScenes
+            .filter({$0.activationState == .foregroundActive})
+            .map({$0 as? UIWindowScene})
+            .compactMap({$0})
+            .first?.windows
+            .filter({$0.isKeyWindow}).first
+            keyWindow?.endEditing(true)
+
         }
     }
 

@@ -25,5 +25,23 @@
 			"service": "S3",
 			"providerPlugin": "awscloudformation"
 		}
+	},
+	"api": {
+		"ClearMindAPI": {
+			"service": "AppSync",
+			"providerPlugin": "awscloudformation",
+			"output": {
+				"authConfig": {
+					"additionalAuthenticationProviders": [],
+					"defaultAuthentication": {
+						"authenticationType": "API_KEY",
+						"apiKeyConfig": {
+							"description": "API key",
+							"apiKeyExpirationDays": "30"
+						}
+					}
+				}
+			}
+		}
 	}
 }
