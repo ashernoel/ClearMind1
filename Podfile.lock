@@ -1,10 +1,18 @@
 PODS:
   - Amplify (0.9.0)
   - amplify-tools (0.2.0)
+  - AmplifyPlugins/AWSAPIPlugin (0.9.0):
+    - AWSPluginsCore (= 0.9.0)
+    - Starscream (~> 3.0.2)
   - AmplifyPlugins/AWSDataStorePlugin (0.9.0):
     - AWSPluginsCore (= 0.9.0)
     - ReachabilitySwift (~> 5.0.0)
     - SQLite.swift (~> 0.12.0)
+  - AWSAppSync (3.0.0):
+    - AWSCore (~> 2.12.0)
+    - ReachabilitySwift (~> 5.0.0)
+    - SQLite.swift (~> 0.12.2)
+    - Starscream (~> 3.0.2)
   - AWSAuthCore (2.12.2):
     - AWSCore (= 2.12.2)
   - AWSAuthUI (2.12.2):
@@ -46,13 +54,18 @@ PODS:
   - SQLite.swift (0.12.2):
     - SQLite.swift/standard (= 0.12.2)
   - SQLite.swift/standard (0.12.2)
+  - Starscream (3.0.6)
 
 DEPENDENCIES:
+  - Amplify
   - amplify-tools
+  - AmplifyPlugins/AWSAPIPlugin
   - AmplifyPlugins/AWSDataStorePlugin
+  - AWSAppSync
   - AWSAuthUI
+  - AWSCore
   - AWSFacebookSignIn
-  - AWSMobileClient
+  - AWSMobileClient (~> 2.12.0)
   - AWSPinpoint
   - AWSS3
   - AWSUserPoolsSignIn
@@ -62,6 +75,7 @@ SPEC REPOS:
     - Amplify
     - amplify-tools
     - AmplifyPlugins
+    - AWSAppSync
     - AWSAuthCore
     - AWSAuthUI
     - AWSCognitoIdentityProvider
@@ -77,11 +91,13 @@ SPEC REPOS:
     - FBSDKLoginKit
     - ReachabilitySwift
     - SQLite.swift
+    - Starscream
 
 SPEC CHECKSUMS:
   Amplify: 36503e3b38c7596658d9229b0bc8a780b3af69a8
   amplify-tools: 2304ea0782b61fdb15c7a1e6bf5e0410b02b4f46
   AmplifyPlugins: d9f9c29196d20ed20927982c2f15c55ea0b3577e
+  AWSAppSync: 04f615ce0c3a0c815b7bf1ca3d47362a22ed12ca
   AWSAuthCore: a67ecbfe4dfdb8470f85c31f9594476d5ed988a5
   AWSAuthUI: e3c28579f4f2e0d52ac97f035873f97571b00278
   AWSCognitoIdentityProvider: 5ac7b7af7877e7a47585c08d6a0ef58bcd6314b6
@@ -97,7 +113,8 @@ SPEC CHECKSUMS:
   FBSDKLoginKit: 1b0cf04df0370b37404213157b060d6666ede814
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   SQLite.swift: d2b4642190917051ce6bd1d49aab565fe794eea3
+  Starscream: ef3ece99d765eeccb67de105bfa143f929026cf5
 
-PODFILE CHECKSUM: 57487598a2664cf4389d31cc4e7de142cafd8a30
+PODFILE CHECKSUM: 73d0dd21f168d7674a54b7e8204f218ea1dfb38f
 
 COCOAPODS: 1.8.4

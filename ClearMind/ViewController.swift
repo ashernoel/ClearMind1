@@ -17,7 +17,25 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        AWSMobileClient.default().initialize { (userState, error) in
+            if let userState = userState {
+                print("UserState: \(userState.rawValue)")
+            } else if let error = error {
+                print("error: \(error.localizedDescription)")
+            }
+        }
+        
         AWSMobileClient.default().signOut()
+        
+        AWSMobileClient.default()
+                   .showSignIn(navigationController: self.navigationController!,
+                                    signInUIOptions: SignInUIOptions(
+                                          canCancel: false,
+                                          logoImage: UIImage(named: "Logo"),
+                                           backgroundColor: UIColor(red:0.00, green:0.69, blue:1.00, alpha:1.0))) { (result, err) in
+                                           //handle results and errors
+               }
+        
         if !AWSSignInManager.sharedInstance().isLoggedIn {
            AWSAuthUIViewController
              .presentViewController(with: self.navigationController!,
@@ -29,8 +47,9 @@ class ViewController: UIViewController {
                          // Sign in successful.
                      }
                   })
-            print("not logged in")
         }
+        
+       
         
     
     }

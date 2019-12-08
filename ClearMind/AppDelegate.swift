@@ -10,11 +10,20 @@ import UIKit
 import AWSMobileClient
 import AWSPinpoint
 import UserNotifications
+import Amplify
+import AmplifyPlugins
+import AWSPluginsCore
+import AWSAuthUI
+import AWSUserPoolsSignIn
+import AWSAppSync
+
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var pinpoint: AWSPinpoint?
+    var appSyncClient: AWSAppSyncClient?
     
     // Add a AWSMobileClient call in application:open url
     func application(_ application: UIApplication, open url: URL,
@@ -37,10 +46,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             didFinishLaunchingWithOptions launchOptions:
         [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
+        // Create AWSMobileClient to connect with AWS
+        AWSMobileClient.default().initialize { (userState, error) in
+          if let error = error {
+        print("Error initializing AWSMobileClient: \(error.localizedDescription)")
+          } else if let userState = userState {
+        print("AWSMobileClient initialized. Current UserState: \(userState.rawValue)")
+          }
+        }
+
+        // Initialize Pinpoint
         let pinpointConfiguration = AWSPinpointConfiguration.defaultPinpointConfiguration(launchOptions: launchOptions)
         pinpoint = AWSPinpoint(configuration: pinpointConfiguration)
-        
+    
         registerForPushNotifications()
+        
+        
+        do {
+            // You can choose the directory in which AppSync stores its persistent cache databases
+            let cacheConfiguration = try AWSAppSyncCacheConfiguration()
+
+            // AppSync configuration & client initialization
+            let appSyncServiceConfig = try AWSAppSyncServiceConfig()
+            let appSyncConfig = try AWSAppSyncClientConfiguration(appSyncServiceConfig: appSyncServiceConfig,
+                                                                  cacheConfiguration: cacheConfiguration)
+            appSyncClient = try AWSAppSyncClient(appSyncConfig: appSyncConfig)
+            print("Initialized appsync client.")
+        } catch {
+            print("Error initializing appsync client. \(error)")
+        }
         
         
         
@@ -71,7 +105,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         pinpoint!.notificationManager.interceptDidRegisterForRemoteNotifications(
             withDeviceToken: deviceToken)
     }
-    
 
     func application(
         _ application: UIApplication,
@@ -88,17 +121,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                                         preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
 
-            //UIApplication.shared.keyWindow?.rootViewController?.present(
-              //  alert, animated: true, completion:nil)
-            
-            let keyWindow = UIApplication.shared.connectedScenes
-            .filter({$0.activationState == .foregroundActive})
-            .map({$0 as? UIWindowScene})
-            .compactMap({$0})
-            .first?.windows
-            .filter({$0.isKeyWindow}).first
-            keyWindow?.endEditing(true)
-
+            UIApplication.shared.keyWindow?.rootViewController?.present(
+                alert, animated: true, completion:nil)
         }
     }
 
@@ -116,8 +140,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             }
         }
     }
-
-
-
+    
 }
+
+
 

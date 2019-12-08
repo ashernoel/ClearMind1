@@ -10,14 +10,16 @@
 		1C925CED2B1D69B33C606E4D /* Pods_ClearMind_ClearMindUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E05C4DF5B19E35D6FCB67AF4 /* Pods_ClearMind_ClearMindUITests.framework */; };
 		8DE42C76558C84F9F884AA7F /* Pods_ClearMind.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C9F500AAB5FCC5DA84B01E1 /* Pods_ClearMind.framework */; };
 		FF6E26F7239C21EB00CD5C2B /* GenderSoundClassification.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = FF6E26F6239C21EB00CD5C2B /* GenderSoundClassification.mlmodel */; };
-		FF7C58E8239B28B10013CBAB /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF7C58E6239B28B10013CBAB /* Interface.storyboard */; };
-		FF7C58EA239B28B20013CBAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF7C58E9239B28B20013CBAB /* Assets.xcassets */; };
+		FF6E26F9239C2CEA00CD5C2B /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = FF6E26F8239C2CEA00CD5C2B /* amplifyconfiguration.json */; };
+		FF6E271E239CB8AF00CD5C2B /* User+Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6E2717239CB8AF00CD5C2B /* User+Schema.swift */; };
+		FF6E271F239CB8AF00CD5C2B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6E2718239CB8AF00CD5C2B /* User.swift */; };
+		FF6E2720239CB8AF00CD5C2B /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6E2719239CB8AF00CD5C2B /* Recording.swift */; };
+		FF6E2721239CB8AF00CD5C2B /* AmplifyModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6E271A239CB8AF00CD5C2B /* AmplifyModels.swift */; };
+		FF6E2722239CB8AF00CD5C2B /* Todo+Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6E271B239CB8AF00CD5C2B /* Todo+Schema.swift */; };
+		FF6E2723239CB8AF00CD5C2B /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6E271C239CB8AF00CD5C2B /* Todo.swift */; };
+		FF6E2724239CB8AF00CD5C2B /* Recording+Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6E271D239CB8AF00CD5C2B /* Recording+Schema.swift */; };
+		FF6E2726239CE7B800CD5C2B /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6E2725239CE7B800CD5C2B /* API.swift */; };
 		FF7C58F1239B28B20013CBAB /* ClearMind Watch App Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = FF7C58F0239B28B20013CBAB /* ClearMind Watch App Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		FF7C58F6239B28B20013CBAB /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7C58F5239B28B20013CBAB /* InterfaceController.swift */; };
-		FF7C58F8239B28B20013CBAB /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7C58F7239B28B20013CBAB /* ExtensionDelegate.swift */; };
-		FF7C58FA239B28B20013CBAB /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7C58F9239B28B20013CBAB /* NotificationController.swift */; };
-		FF7C58FC239B28B30013CBAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF7C58FB239B28B30013CBAB /* Assets.xcassets */; };
-		FF7C5902239B28B30013CBAB /* ClearMind Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = FF7C58E4239B28B10013CBAB /* ClearMind Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		FFB10DEE23974A1F000C71EF /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = FFB10DED23974A1F000C71EF /* awsconfiguration.json */; };
 		FFB10E262397ACBD006A6E70 /* RecordViewController .swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB10E252397ACBD006A6E70 /* RecordViewController .swift */; };
 		FFB10E2E2397CC29006A6E70 /* VoiceClassifier2.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB10E2D2397CC29006A6E70 /* VoiceClassifier2.swift */; };
@@ -36,13 +38,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = FF7C58EF239B28B20013CBAB;
 			remoteInfo = "ClearMind Watch App Extension";
-		};
-		FF7C58FF239B28B30013CBAB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FFBE597D2395F5E300A9FD53 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FF7C58E3239B28B10013CBAB;
-			remoteInfo = "ClearMind Watch App";
 		};
 		FFBE599C2395F5E500A9FD53 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -67,7 +62,6 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				FF7C5902239B28B30013CBAB /* ClearMind Watch App.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -94,17 +88,18 @@
 		E05C4DF5B19E35D6FCB67AF4 /* Pods_ClearMind_ClearMindUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClearMind_ClearMindUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7FBF34DA4B0833A66AD2849 /* Pods-ClearMind-ClearMindUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClearMind-ClearMindUITests.release.xcconfig"; path = "Target Support Files/Pods-ClearMind-ClearMindUITests/Pods-ClearMind-ClearMindUITests.release.xcconfig"; sourceTree = "<group>"; };
 		FF6E26F6239C21EB00CD5C2B /* GenderSoundClassification.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = GenderSoundClassification.mlmodel; sourceTree = "<group>"; };
+		FF6E26F8239C2CEA00CD5C2B /* amplifyconfiguration.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = amplifyconfiguration.json; sourceTree = "<group>"; };
+		FF6E26FA239C2CFB00CD5C2B /* awsconfiguration.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
+		FF6E2717239CB8AF00CD5C2B /* User+Schema.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "User+Schema.swift"; path = "models/User+Schema.swift"; sourceTree = "<group>"; };
+		FF6E2718239CB8AF00CD5C2B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = models/User.swift; sourceTree = "<group>"; };
+		FF6E2719239CB8AF00CD5C2B /* Recording.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Recording.swift; path = models/Recording.swift; sourceTree = "<group>"; };
+		FF6E271A239CB8AF00CD5C2B /* AmplifyModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AmplifyModels.swift; path = models/AmplifyModels.swift; sourceTree = "<group>"; };
+		FF6E271B239CB8AF00CD5C2B /* Todo+Schema.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Todo+Schema.swift"; path = "models/Todo+Schema.swift"; sourceTree = "<group>"; };
+		FF6E271C239CB8AF00CD5C2B /* Todo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Todo.swift; path = models/Todo.swift; sourceTree = "<group>"; };
+		FF6E271D239CB8AF00CD5C2B /* Recording+Schema.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Recording+Schema.swift"; path = "models/Recording+Schema.swift"; sourceTree = "<group>"; };
+		FF6E2725239CE7B800CD5C2B /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		FF7C58E4239B28B10013CBAB /* ClearMind Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ClearMind Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FF7C58E7239B28B10013CBAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
-		FF7C58E9239B28B20013CBAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FF7C58EB239B28B20013CBAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF7C58F0239B28B20013CBAB /* ClearMind Watch App Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "ClearMind Watch App Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FF7C58F5239B28B20013CBAB /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
-		FF7C58F7239B28B20013CBAB /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
-		FF7C58F9239B28B20013CBAB /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
-		FF7C58FB239B28B30013CBAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FF7C58FD239B28B30013CBAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FF7C58FE239B28B30013CBAB /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		FFB10DED23974A1F000C71EF /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = SOURCE_ROOT; };
 		FFB10E252397ACBD006A6E70 /* RecordViewController .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecordViewController .swift"; sourceTree = "<group>"; };
 		FFB10E2D2397CC29006A6E70 /* VoiceClassifier2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceClassifier2.swift; sourceTree = "<group>"; };
@@ -181,36 +176,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		FF7C58E5239B28B10013CBAB /* ClearMind Watch App */ = {
-			isa = PBXGroup;
-			children = (
-				FF7C58E6239B28B10013CBAB /* Interface.storyboard */,
-				FF7C58E9239B28B20013CBAB /* Assets.xcassets */,
-				FF7C58EB239B28B20013CBAB /* Info.plist */,
-			);
-			path = "ClearMind Watch App";
-			sourceTree = "<group>";
-		};
-		FF7C58F4239B28B20013CBAB /* ClearMind Watch App Extension */ = {
-			isa = PBXGroup;
-			children = (
-				FF7C58F5239B28B20013CBAB /* InterfaceController.swift */,
-				FF7C58F7239B28B20013CBAB /* ExtensionDelegate.swift */,
-				FF7C58F9239B28B20013CBAB /* NotificationController.swift */,
-				FF7C58FB239B28B30013CBAB /* Assets.xcassets */,
-				FF7C58FD239B28B30013CBAB /* Info.plist */,
-				FF7C58FE239B28B30013CBAB /* PushNotificationPayload.apns */,
-			);
-			path = "ClearMind Watch App Extension";
-			sourceTree = "<group>";
-		};
 		FFBE597C2395F5E300A9FD53 = {
 			isa = PBXGroup;
 			children = (
+				FF6E2725239CE7B800CD5C2B /* API.swift */,
+				FF6E26FA239C2CFB00CD5C2B /* awsconfiguration.json */,
+				FF6E26F8239C2CEA00CD5C2B /* amplifyconfiguration.json */,
 				FF6E26F6239C21EB00CD5C2B /* GenderSoundClassification.mlmodel */,
 				FFBE59872395F5E300A9FD53 /* ClearMind */,
-				FF7C58E5239B28B10013CBAB /* ClearMind Watch App */,
-				FF7C58F4239B28B20013CBAB /* ClearMind Watch App Extension */,
 				FFBE59862395F5E300A9FD53 /* Products */,
 				0C9686897BA747DBF66ABA3E /* Pods */,
 				EAF9E5A906A44B2120D021DA /* Frameworks */,
@@ -233,6 +206,13 @@
 		FFBE59872395F5E300A9FD53 /* ClearMind */ = {
 			isa = PBXGroup;
 			children = (
+				FF6E271A239CB8AF00CD5C2B /* AmplifyModels.swift */,
+				FF6E2719239CB8AF00CD5C2B /* Recording.swift */,
+				FF6E271D239CB8AF00CD5C2B /* Recording+Schema.swift */,
+				FF6E271C239CB8AF00CD5C2B /* Todo.swift */,
+				FF6E271B239CB8AF00CD5C2B /* Todo+Schema.swift */,
+				FF6E2718239CB8AF00CD5C2B /* User.swift */,
+				FF6E2717239CB8AF00CD5C2B /* User+Schema.swift */,
 				FFB10DED23974A1F000C71EF /* awsconfiguration.json */,
 				FFBE59882395F5E300A9FD53 /* AppDelegate.swift */,
 				FFBE598A2395F5E300A9FD53 /* SceneDelegate.swift */,
@@ -293,13 +273,12 @@
 				FFBE59812395F5E300A9FD53 /* Sources */,
 				FFBE59822395F5E300A9FD53 /* Frameworks */,
 				FFBE59832395F5E300A9FD53 /* Resources */,
-				7AC162E0383E7A52297590BE /* [CP] Embed Pods Frameworks */,
 				FF7C5901239B28B30013CBAB /* Embed Watch Content */,
+				7AC162E0383E7A52297590BE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				FF7C5900239B28B30013CBAB /* PBXTargetDependency */,
 			);
 			name = ClearMind;
 			productName = ClearMind;
@@ -400,8 +379,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF7C58EA239B28B20013CBAB /* Assets.xcassets in Resources */,
-				FF7C58E8239B28B10013CBAB /* Interface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,7 +386,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF7C58FC239B28B30013CBAB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,6 +394,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFB10DEE23974A1F000C71EF /* awsconfiguration.json in Resources */,
+				FF6E26F9239C2CEA00CD5C2B /* amplifyconfiguration.json in Resources */,
 				FFBE59952395F5E500A9FD53 /* LaunchScreen.storyboard in Resources */,
 				FFBE59922395F5E500A9FD53 /* Assets.xcassets in Resources */,
 				FFBE59902395F5E300A9FD53 /* Main.storyboard in Resources */,
@@ -526,9 +503,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF7C58FA239B28B20013CBAB /* NotificationController.swift in Sources */,
-				FF7C58F8239B28B20013CBAB /* ExtensionDelegate.swift in Sources */,
-				FF7C58F6239B28B20013CBAB /* InterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,12 +510,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF6E2721239CB8AF00CD5C2B /* AmplifyModels.swift in Sources */,
 				FF6E26F7239C21EB00CD5C2B /* GenderSoundClassification.mlmodel in Sources */,
 				FFB10E262397ACBD006A6E70 /* RecordViewController .swift in Sources */,
+				FF6E2722239CB8AF00CD5C2B /* Todo+Schema.swift in Sources */,
 				FFB10E2E2397CC29006A6E70 /* VoiceClassifier2.swift in Sources */,
+				FF6E271E239CB8AF00CD5C2B /* User+Schema.swift in Sources */,
+				FF6E2726239CE7B800CD5C2B /* API.swift in Sources */,
+				FF6E2720239CB8AF00CD5C2B /* Recording.swift in Sources */,
+				FF6E2723239CB8AF00CD5C2B /* Todo.swift in Sources */,
+				FF6E271F239CB8AF00CD5C2B /* User.swift in Sources */,
 				FFBE598D2395F5E300A9FD53 /* ViewController.swift in Sources */,
 				FFBE59892395F5E300A9FD53 /* AppDelegate.swift in Sources */,
 				FFBE598B2395F5E300A9FD53 /* SceneDelegate.swift in Sources */,
+				FF6E2724239CB8AF00CD5C2B /* Recording+Schema.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -567,11 +549,6 @@
 			target = FF7C58EF239B28B20013CBAB /* ClearMind Watch App Extension */;
 			targetProxy = FF7C58F2239B28B20013CBAB /* PBXContainerItemProxy */;
 		};
-		FF7C5900239B28B30013CBAB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FF7C58E3239B28B10013CBAB /* ClearMind Watch App */;
-			targetProxy = FF7C58FF239B28B30013CBAB /* PBXContainerItemProxy */;
-		};
 		FFBE599D2395F5E500A9FD53 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = FFBE59842395F5E300A9FD53 /* ClearMind */;
@@ -585,14 +562,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		FF7C58E6239B28B10013CBAB /* Interface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FF7C58E7239B28B10013CBAB /* Base */,
-			);
-			name = Interface.storyboard;
-			sourceTree = "<group>";
-		};
 		FFBE598E2395F5E300A9FD53 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -659,7 +628,6 @@
 		FF7C5908239B28B30013CBAB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Automatic;
@@ -679,15 +647,15 @@
 		FF7C5909239B28B30013CBAB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KVS7WF34PR;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				IBSC_MODULE = ClearMind_Watch_App_Extension;
 				INFOPLIST_FILE = "ClearMind Watch App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.clearmind.ClearMind.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -728,8 +696,11 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: asher13a@gmail.com (K35KTR452P)";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = KVS7WF34PR;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -788,8 +759,11 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: asher13a@gmail.com (K35KTR452P)";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = KVS7WF34PR;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -815,7 +789,7 @@
 			baseConfigurationReference = 5BDD27CAEAC320733936139D /* Pods-ClearMind.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = KVS7WF34PR;
 				INFOPLIST_FILE = ClearMind/Info.plist;
@@ -825,7 +799,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.clearmind.ClearMind;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Asher ClearMind Profile Testin";
+				PROVISIONING_PROFILE_SPECIFIER = "ios test development";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -836,7 +810,7 @@
 			baseConfigurationReference = 0302A90CBA9B5E74ACBB6A1A /* Pods-ClearMind.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = KVS7WF34PR;
 				INFOPLIST_FILE = ClearMind/Info.plist;
@@ -846,7 +820,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.clearmind.ClearMind;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "ClearMind Provisioning Profile";
+				PROVISIONING_PROFILE_SPECIFIER = "ios test development";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

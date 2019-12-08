@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 import Speech
+import AWSAppSync
+
 
 class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
     
@@ -20,10 +22,17 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
     @IBOutlet var recordButton: UIButton!
     @IBOutlet var textView : UITextView!
     
+    var appSyncClient: AWSAppSyncClient?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Disable the record buttons until authorization has been granted.
         recordButton.isEnabled = false
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appSyncClient = appDelegate.appSyncClient
+        
+        runMutation()
     }
     
     override public func viewDidAppear(_ animated: Bool) {
@@ -130,9 +139,25 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
             recognitionRequest?.endAudio()
             recordButton.isEnabled = false
             recordButton.setTitle("Stopping", for: .disabled)
+            
         } else {
             try! startRecording()
             recordButton.setTitle("Stop recording", for: [])
+        
+        }
+    }
+    
+    func runMutation(){
+        let mutationInput = CreateRecordingInput(content: "Use AppSync")
+        appSyncClient?.perform(mutation: CreateRecordingMutation(input: mutationInput)) { (result, error) in
+            if let error = error as? AWSAppSyncClientError {
+                print("Error occurred: \(error.localizedDescription )")
+            }
+            if let resultError = result?.errors {
+                print("Error saving the item on server: \(resultError)")
+                return
+            }
+            print("Mutation complete.")
         }
     }
     

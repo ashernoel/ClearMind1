@@ -2,11 +2,11 @@
 
 import AWSAppSync
 
-public struct CreateTodoInput: GraphQLMapConvertible {
+public struct CreateUserInput: GraphQLMapConvertible {
   public var graphQLMap: GraphQLMap
 
-  public init(id: GraphQLID? = nil, name: String, description: String? = nil) {
-    graphQLMap = ["id": id, "name": name, "description": description]
+  public init(id: GraphQLID? = nil, username: String, firstName: String? = nil, lastName: String? = nil, image: String? = nil) {
+    graphQLMap = ["id": id, "username": username, "firstName": firstName, "lastName": lastName, "image": image]
   }
 
   public var id: GraphQLID? {
@@ -18,71 +18,107 @@ public struct CreateTodoInput: GraphQLMapConvertible {
     }
   }
 
-  public var name: String {
+  public var username: String {
     get {
-      return graphQLMap["name"] as! String
+      return graphQLMap["username"] as! String
     }
     set {
-      graphQLMap.updateValue(newValue, forKey: "name")
+      graphQLMap.updateValue(newValue, forKey: "username")
     }
   }
 
-  public var description: String? {
+  public var firstName: String? {
     get {
-      return graphQLMap["description"] as! String?
+      return graphQLMap["firstName"] as! String?
     }
     set {
-      graphQLMap.updateValue(newValue, forKey: "description")
+      graphQLMap.updateValue(newValue, forKey: "firstName")
+    }
+  }
+
+  public var lastName: String? {
+    get {
+      return graphQLMap["lastName"] as! String?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "lastName")
+    }
+  }
+
+  public var image: String? {
+    get {
+      return graphQLMap["image"] as! String?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "image")
     }
   }
 }
 
-public struct ModelTodoConditionInput: GraphQLMapConvertible {
+public struct ModelUserConditionInput: GraphQLMapConvertible {
   public var graphQLMap: GraphQLMap
 
-  public init(name: ModelStringInput? = nil, description: ModelStringInput? = nil, and: [ModelTodoConditionInput?]? = nil, or: [ModelTodoConditionInput?]? = nil, not: ModelTodoConditionInput? = nil) {
-    graphQLMap = ["name": name, "description": description, "and": and, "or": or, "not": not]
+  public init(username: ModelStringInput? = nil, firstName: ModelStringInput? = nil, lastName: ModelStringInput? = nil, image: ModelStringInput? = nil, and: [ModelUserConditionInput?]? = nil, or: [ModelUserConditionInput?]? = nil, not: ModelUserConditionInput? = nil) {
+    graphQLMap = ["username": username, "firstName": firstName, "lastName": lastName, "image": image, "and": and, "or": or, "not": not]
   }
 
-  public var name: ModelStringInput? {
+  public var username: ModelStringInput? {
     get {
-      return graphQLMap["name"] as! ModelStringInput?
+      return graphQLMap["username"] as! ModelStringInput?
     }
     set {
-      graphQLMap.updateValue(newValue, forKey: "name")
+      graphQLMap.updateValue(newValue, forKey: "username")
     }
   }
 
-  public var description: ModelStringInput? {
+  public var firstName: ModelStringInput? {
     get {
-      return graphQLMap["description"] as! ModelStringInput?
+      return graphQLMap["firstName"] as! ModelStringInput?
     }
     set {
-      graphQLMap.updateValue(newValue, forKey: "description")
+      graphQLMap.updateValue(newValue, forKey: "firstName")
     }
   }
 
-  public var and: [ModelTodoConditionInput?]? {
+  public var lastName: ModelStringInput? {
     get {
-      return graphQLMap["and"] as! [ModelTodoConditionInput?]?
+      return graphQLMap["lastName"] as! ModelStringInput?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "lastName")
+    }
+  }
+
+  public var image: ModelStringInput? {
+    get {
+      return graphQLMap["image"] as! ModelStringInput?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "image")
+    }
+  }
+
+  public var and: [ModelUserConditionInput?]? {
+    get {
+      return graphQLMap["and"] as! [ModelUserConditionInput?]?
     }
     set {
       graphQLMap.updateValue(newValue, forKey: "and")
     }
   }
 
-  public var or: [ModelTodoConditionInput?]? {
+  public var or: [ModelUserConditionInput?]? {
     get {
-      return graphQLMap["or"] as! [ModelTodoConditionInput?]?
+      return graphQLMap["or"] as! [ModelUserConditionInput?]?
     }
     set {
       graphQLMap.updateValue(newValue, forKey: "or")
     }
   }
 
-  public var not: ModelTodoConditionInput? {
+  public var not: ModelUserConditionInput? {
     get {
-      return graphQLMap["not"] as! ModelTodoConditionInput?
+      return graphQLMap["not"] as! ModelUserConditionInput?
     }
     set {
       graphQLMap.updateValue(newValue, forKey: "not")
@@ -351,11 +387,11 @@ public struct ModelSizeInput: GraphQLMapConvertible {
   }
 }
 
-public struct UpdateTodoInput: GraphQLMapConvertible {
+public struct UpdateUserInput: GraphQLMapConvertible {
   public var graphQLMap: GraphQLMap
 
-  public init(id: GraphQLID, name: String? = nil, description: String? = nil) {
-    graphQLMap = ["id": id, "name": name, "description": description]
+  public init(id: GraphQLID, username: String? = nil, firstName: String? = nil, lastName: String? = nil, image: String? = nil) {
+    graphQLMap = ["id": id, "username": username, "firstName": firstName, "lastName": lastName, "image": image]
   }
 
   public var id: GraphQLID {
@@ -367,26 +403,44 @@ public struct UpdateTodoInput: GraphQLMapConvertible {
     }
   }
 
-  public var name: String? {
+  public var username: String? {
     get {
-      return graphQLMap["name"] as! String?
+      return graphQLMap["username"] as! String?
     }
     set {
-      graphQLMap.updateValue(newValue, forKey: "name")
+      graphQLMap.updateValue(newValue, forKey: "username")
     }
   }
 
-  public var description: String? {
+  public var firstName: String? {
     get {
-      return graphQLMap["description"] as! String?
+      return graphQLMap["firstName"] as! String?
     }
     set {
-      graphQLMap.updateValue(newValue, forKey: "description")
+      graphQLMap.updateValue(newValue, forKey: "firstName")
+    }
+  }
+
+  public var lastName: String? {
+    get {
+      return graphQLMap["lastName"] as! String?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "lastName")
+    }
+  }
+
+  public var image: String? {
+    get {
+      return graphQLMap["image"] as! String?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "image")
     }
   }
 }
 
-public struct DeleteTodoInput: GraphQLMapConvertible {
+public struct DeleteUserInput: GraphQLMapConvertible {
   public var graphQLMap: GraphQLMap
 
   public init(id: GraphQLID? = nil) {
@@ -403,11 +457,124 @@ public struct DeleteTodoInput: GraphQLMapConvertible {
   }
 }
 
-public struct ModelTodoFilterInput: GraphQLMapConvertible {
+public struct CreateRecordingInput: GraphQLMapConvertible {
   public var graphQLMap: GraphQLMap
 
-  public init(id: ModelIDInput? = nil, name: ModelStringInput? = nil, description: ModelStringInput? = nil, and: [ModelTodoFilterInput?]? = nil, or: [ModelTodoFilterInput?]? = nil, not: ModelTodoFilterInput? = nil) {
-    graphQLMap = ["id": id, "name": name, "description": description, "and": and, "or": or, "not": not]
+  public init(id: GraphQLID? = nil, content: String? = nil) {
+    graphQLMap = ["id": id, "content": content]
+  }
+
+  public var id: GraphQLID? {
+    get {
+      return graphQLMap["id"] as! GraphQLID?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "id")
+    }
+  }
+
+  public var content: String? {
+    get {
+      return graphQLMap["content"] as! String?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "content")
+    }
+  }
+}
+
+public struct ModelRecordingConditionInput: GraphQLMapConvertible {
+  public var graphQLMap: GraphQLMap
+
+  public init(content: ModelStringInput? = nil, and: [ModelRecordingConditionInput?]? = nil, or: [ModelRecordingConditionInput?]? = nil, not: ModelRecordingConditionInput? = nil) {
+    graphQLMap = ["content": content, "and": and, "or": or, "not": not]
+  }
+
+  public var content: ModelStringInput? {
+    get {
+      return graphQLMap["content"] as! ModelStringInput?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "content")
+    }
+  }
+
+  public var and: [ModelRecordingConditionInput?]? {
+    get {
+      return graphQLMap["and"] as! [ModelRecordingConditionInput?]?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "and")
+    }
+  }
+
+  public var or: [ModelRecordingConditionInput?]? {
+    get {
+      return graphQLMap["or"] as! [ModelRecordingConditionInput?]?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "or")
+    }
+  }
+
+  public var not: ModelRecordingConditionInput? {
+    get {
+      return graphQLMap["not"] as! ModelRecordingConditionInput?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "not")
+    }
+  }
+}
+
+public struct UpdateRecordingInput: GraphQLMapConvertible {
+  public var graphQLMap: GraphQLMap
+
+  public init(id: GraphQLID, content: String? = nil) {
+    graphQLMap = ["id": id, "content": content]
+  }
+
+  public var id: GraphQLID {
+    get {
+      return graphQLMap["id"] as! GraphQLID
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "id")
+    }
+  }
+
+  public var content: String? {
+    get {
+      return graphQLMap["content"] as! String?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "content")
+    }
+  }
+}
+
+public struct DeleteRecordingInput: GraphQLMapConvertible {
+  public var graphQLMap: GraphQLMap
+
+  public init(id: GraphQLID? = nil) {
+    graphQLMap = ["id": id]
+  }
+
+  public var id: GraphQLID? {
+    get {
+      return graphQLMap["id"] as! GraphQLID?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "id")
+    }
+  }
+}
+
+public struct ModelUserFilterInput: GraphQLMapConvertible {
+  public var graphQLMap: GraphQLMap
+
+  public init(id: ModelIDInput? = nil, username: ModelStringInput? = nil, firstName: ModelStringInput? = nil, lastName: ModelStringInput? = nil, image: ModelStringInput? = nil, and: [ModelUserFilterInput?]? = nil, or: [ModelUserFilterInput?]? = nil, not: ModelUserFilterInput? = nil) {
+    graphQLMap = ["id": id, "username": username, "firstName": firstName, "lastName": lastName, "image": image, "and": and, "or": or, "not": not]
   }
 
   public var id: ModelIDInput? {
@@ -419,45 +586,63 @@ public struct ModelTodoFilterInput: GraphQLMapConvertible {
     }
   }
 
-  public var name: ModelStringInput? {
+  public var username: ModelStringInput? {
     get {
-      return graphQLMap["name"] as! ModelStringInput?
+      return graphQLMap["username"] as! ModelStringInput?
     }
     set {
-      graphQLMap.updateValue(newValue, forKey: "name")
+      graphQLMap.updateValue(newValue, forKey: "username")
     }
   }
 
-  public var description: ModelStringInput? {
+  public var firstName: ModelStringInput? {
     get {
-      return graphQLMap["description"] as! ModelStringInput?
+      return graphQLMap["firstName"] as! ModelStringInput?
     }
     set {
-      graphQLMap.updateValue(newValue, forKey: "description")
+      graphQLMap.updateValue(newValue, forKey: "firstName")
     }
   }
 
-  public var and: [ModelTodoFilterInput?]? {
+  public var lastName: ModelStringInput? {
     get {
-      return graphQLMap["and"] as! [ModelTodoFilterInput?]?
+      return graphQLMap["lastName"] as! ModelStringInput?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "lastName")
+    }
+  }
+
+  public var image: ModelStringInput? {
+    get {
+      return graphQLMap["image"] as! ModelStringInput?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "image")
+    }
+  }
+
+  public var and: [ModelUserFilterInput?]? {
+    get {
+      return graphQLMap["and"] as! [ModelUserFilterInput?]?
     }
     set {
       graphQLMap.updateValue(newValue, forKey: "and")
     }
   }
 
-  public var or: [ModelTodoFilterInput?]? {
+  public var or: [ModelUserFilterInput?]? {
     get {
-      return graphQLMap["or"] as! [ModelTodoFilterInput?]?
+      return graphQLMap["or"] as! [ModelUserFilterInput?]?
     }
     set {
       graphQLMap.updateValue(newValue, forKey: "or")
     }
   }
 
-  public var not: ModelTodoFilterInput? {
+  public var not: ModelUserFilterInput? {
     get {
-      return graphQLMap["not"] as! ModelTodoFilterInput?
+      return graphQLMap["not"] as! ModelUserFilterInput?
     }
     set {
       graphQLMap.updateValue(newValue, forKey: "not")
@@ -590,14 +775,67 @@ public struct ModelIDInput: GraphQLMapConvertible {
   }
 }
 
-public final class CreateTodoMutation: GraphQLMutation {
+public struct ModelRecordingFilterInput: GraphQLMapConvertible {
+  public var graphQLMap: GraphQLMap
+
+  public init(id: ModelIDInput? = nil, content: ModelStringInput? = nil, and: [ModelRecordingFilterInput?]? = nil, or: [ModelRecordingFilterInput?]? = nil, not: ModelRecordingFilterInput? = nil) {
+    graphQLMap = ["id": id, "content": content, "and": and, "or": or, "not": not]
+  }
+
+  public var id: ModelIDInput? {
+    get {
+      return graphQLMap["id"] as! ModelIDInput?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "id")
+    }
+  }
+
+  public var content: ModelStringInput? {
+    get {
+      return graphQLMap["content"] as! ModelStringInput?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "content")
+    }
+  }
+
+  public var and: [ModelRecordingFilterInput?]? {
+    get {
+      return graphQLMap["and"] as! [ModelRecordingFilterInput?]?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "and")
+    }
+  }
+
+  public var or: [ModelRecordingFilterInput?]? {
+    get {
+      return graphQLMap["or"] as! [ModelRecordingFilterInput?]?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "or")
+    }
+  }
+
+  public var not: ModelRecordingFilterInput? {
+    get {
+      return graphQLMap["not"] as! ModelRecordingFilterInput?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "not")
+    }
+  }
+}
+
+public final class CreateUserMutation: GraphQLMutation {
   public static let operationString =
-    "mutation CreateTodo($input: CreateTodoInput!, $condition: ModelTodoConditionInput) {\n  createTodo(input: $input, condition: $condition) {\n    __typename\n    id\n    name\n    description\n  }\n}"
+    "mutation CreateUser($input: CreateUserInput!, $condition: ModelUserConditionInput) {\n  createUser(input: $input, condition: $condition) {\n    __typename\n    id\n    username\n    firstName\n    lastName\n    image\n  }\n}"
 
-  public var input: CreateTodoInput
-  public var condition: ModelTodoConditionInput?
+  public var input: CreateUserInput
+  public var condition: ModelUserConditionInput?
 
-  public init(input: CreateTodoInput, condition: ModelTodoConditionInput? = nil) {
+  public init(input: CreateUserInput, condition: ModelUserConditionInput? = nil) {
     self.input = input
     self.condition = condition
   }
@@ -610,7 +848,7 @@ public final class CreateTodoMutation: GraphQLMutation {
     public static let possibleTypes = ["Mutation"]
 
     public static let selections: [GraphQLSelection] = [
-      GraphQLField("createTodo", arguments: ["input": GraphQLVariable("input"), "condition": GraphQLVariable("condition")], type: .object(CreateTodo.selections)),
+      GraphQLField("createUser", arguments: ["input": GraphQLVariable("input"), "condition": GraphQLVariable("condition")], type: .object(CreateUser.selections)),
     ]
 
     public var snapshot: Snapshot
@@ -619,27 +857,29 @@ public final class CreateTodoMutation: GraphQLMutation {
       self.snapshot = snapshot
     }
 
-    public init(createTodo: CreateTodo? = nil) {
-      self.init(snapshot: ["__typename": "Mutation", "createTodo": createTodo.flatMap { $0.snapshot }])
+    public init(createUser: CreateUser? = nil) {
+      self.init(snapshot: ["__typename": "Mutation", "createUser": createUser.flatMap { $0.snapshot }])
     }
 
-    public var createTodo: CreateTodo? {
+    public var createUser: CreateUser? {
       get {
-        return (snapshot["createTodo"] as? Snapshot).flatMap { CreateTodo(snapshot: $0) }
+        return (snapshot["createUser"] as? Snapshot).flatMap { CreateUser(snapshot: $0) }
       }
       set {
-        snapshot.updateValue(newValue?.snapshot, forKey: "createTodo")
+        snapshot.updateValue(newValue?.snapshot, forKey: "createUser")
       }
     }
 
-    public struct CreateTodo: GraphQLSelectionSet {
-      public static let possibleTypes = ["Todo"]
+    public struct CreateUser: GraphQLSelectionSet {
+      public static let possibleTypes = ["User"]
 
       public static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
         GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-        GraphQLField("name", type: .nonNull(.scalar(String.self))),
-        GraphQLField("description", type: .scalar(String.self)),
+        GraphQLField("username", type: .nonNull(.scalar(String.self))),
+        GraphQLField("firstName", type: .scalar(String.self)),
+        GraphQLField("lastName", type: .scalar(String.self)),
+        GraphQLField("image", type: .scalar(String.self)),
       ]
 
       public var snapshot: Snapshot
@@ -648,8 +888,8 @@ public final class CreateTodoMutation: GraphQLMutation {
         self.snapshot = snapshot
       }
 
-      public init(id: GraphQLID, name: String, description: String? = nil) {
-        self.init(snapshot: ["__typename": "Todo", "id": id, "name": name, "description": description])
+      public init(id: GraphQLID, username: String, firstName: String? = nil, lastName: String? = nil, image: String? = nil) {
+        self.init(snapshot: ["__typename": "User", "id": id, "username": username, "firstName": firstName, "lastName": lastName, "image": image])
       }
 
       public var __typename: String {
@@ -670,35 +910,53 @@ public final class CreateTodoMutation: GraphQLMutation {
         }
       }
 
-      public var name: String {
+      public var username: String {
         get {
-          return snapshot["name"]! as! String
+          return snapshot["username"]! as! String
         }
         set {
-          snapshot.updateValue(newValue, forKey: "name")
+          snapshot.updateValue(newValue, forKey: "username")
         }
       }
 
-      public var description: String? {
+      public var firstName: String? {
         get {
-          return snapshot["description"] as? String
+          return snapshot["firstName"] as? String
         }
         set {
-          snapshot.updateValue(newValue, forKey: "description")
+          snapshot.updateValue(newValue, forKey: "firstName")
+        }
+      }
+
+      public var lastName: String? {
+        get {
+          return snapshot["lastName"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "lastName")
+        }
+      }
+
+      public var image: String? {
+        get {
+          return snapshot["image"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "image")
         }
       }
     }
   }
 }
 
-public final class UpdateTodoMutation: GraphQLMutation {
+public final class UpdateUserMutation: GraphQLMutation {
   public static let operationString =
-    "mutation UpdateTodo($input: UpdateTodoInput!, $condition: ModelTodoConditionInput) {\n  updateTodo(input: $input, condition: $condition) {\n    __typename\n    id\n    name\n    description\n  }\n}"
+    "mutation UpdateUser($input: UpdateUserInput!, $condition: ModelUserConditionInput) {\n  updateUser(input: $input, condition: $condition) {\n    __typename\n    id\n    username\n    firstName\n    lastName\n    image\n  }\n}"
 
-  public var input: UpdateTodoInput
-  public var condition: ModelTodoConditionInput?
+  public var input: UpdateUserInput
+  public var condition: ModelUserConditionInput?
 
-  public init(input: UpdateTodoInput, condition: ModelTodoConditionInput? = nil) {
+  public init(input: UpdateUserInput, condition: ModelUserConditionInput? = nil) {
     self.input = input
     self.condition = condition
   }
@@ -711,7 +969,7 @@ public final class UpdateTodoMutation: GraphQLMutation {
     public static let possibleTypes = ["Mutation"]
 
     public static let selections: [GraphQLSelection] = [
-      GraphQLField("updateTodo", arguments: ["input": GraphQLVariable("input"), "condition": GraphQLVariable("condition")], type: .object(UpdateTodo.selections)),
+      GraphQLField("updateUser", arguments: ["input": GraphQLVariable("input"), "condition": GraphQLVariable("condition")], type: .object(UpdateUser.selections)),
     ]
 
     public var snapshot: Snapshot
@@ -720,27 +978,29 @@ public final class UpdateTodoMutation: GraphQLMutation {
       self.snapshot = snapshot
     }
 
-    public init(updateTodo: UpdateTodo? = nil) {
-      self.init(snapshot: ["__typename": "Mutation", "updateTodo": updateTodo.flatMap { $0.snapshot }])
+    public init(updateUser: UpdateUser? = nil) {
+      self.init(snapshot: ["__typename": "Mutation", "updateUser": updateUser.flatMap { $0.snapshot }])
     }
 
-    public var updateTodo: UpdateTodo? {
+    public var updateUser: UpdateUser? {
       get {
-        return (snapshot["updateTodo"] as? Snapshot).flatMap { UpdateTodo(snapshot: $0) }
+        return (snapshot["updateUser"] as? Snapshot).flatMap { UpdateUser(snapshot: $0) }
       }
       set {
-        snapshot.updateValue(newValue?.snapshot, forKey: "updateTodo")
+        snapshot.updateValue(newValue?.snapshot, forKey: "updateUser")
       }
     }
 
-    public struct UpdateTodo: GraphQLSelectionSet {
-      public static let possibleTypes = ["Todo"]
+    public struct UpdateUser: GraphQLSelectionSet {
+      public static let possibleTypes = ["User"]
 
       public static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
         GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-        GraphQLField("name", type: .nonNull(.scalar(String.self))),
-        GraphQLField("description", type: .scalar(String.self)),
+        GraphQLField("username", type: .nonNull(.scalar(String.self))),
+        GraphQLField("firstName", type: .scalar(String.self)),
+        GraphQLField("lastName", type: .scalar(String.self)),
+        GraphQLField("image", type: .scalar(String.self)),
       ]
 
       public var snapshot: Snapshot
@@ -749,8 +1009,8 @@ public final class UpdateTodoMutation: GraphQLMutation {
         self.snapshot = snapshot
       }
 
-      public init(id: GraphQLID, name: String, description: String? = nil) {
-        self.init(snapshot: ["__typename": "Todo", "id": id, "name": name, "description": description])
+      public init(id: GraphQLID, username: String, firstName: String? = nil, lastName: String? = nil, image: String? = nil) {
+        self.init(snapshot: ["__typename": "User", "id": id, "username": username, "firstName": firstName, "lastName": lastName, "image": image])
       }
 
       public var __typename: String {
@@ -771,35 +1031,53 @@ public final class UpdateTodoMutation: GraphQLMutation {
         }
       }
 
-      public var name: String {
+      public var username: String {
         get {
-          return snapshot["name"]! as! String
+          return snapshot["username"]! as! String
         }
         set {
-          snapshot.updateValue(newValue, forKey: "name")
+          snapshot.updateValue(newValue, forKey: "username")
         }
       }
 
-      public var description: String? {
+      public var firstName: String? {
         get {
-          return snapshot["description"] as? String
+          return snapshot["firstName"] as? String
         }
         set {
-          snapshot.updateValue(newValue, forKey: "description")
+          snapshot.updateValue(newValue, forKey: "firstName")
+        }
+      }
+
+      public var lastName: String? {
+        get {
+          return snapshot["lastName"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "lastName")
+        }
+      }
+
+      public var image: String? {
+        get {
+          return snapshot["image"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "image")
         }
       }
     }
   }
 }
 
-public final class DeleteTodoMutation: GraphQLMutation {
+public final class DeleteUserMutation: GraphQLMutation {
   public static let operationString =
-    "mutation DeleteTodo($input: DeleteTodoInput!, $condition: ModelTodoConditionInput) {\n  deleteTodo(input: $input, condition: $condition) {\n    __typename\n    id\n    name\n    description\n  }\n}"
+    "mutation DeleteUser($input: DeleteUserInput!, $condition: ModelUserConditionInput) {\n  deleteUser(input: $input, condition: $condition) {\n    __typename\n    id\n    username\n    firstName\n    lastName\n    image\n  }\n}"
 
-  public var input: DeleteTodoInput
-  public var condition: ModelTodoConditionInput?
+  public var input: DeleteUserInput
+  public var condition: ModelUserConditionInput?
 
-  public init(input: DeleteTodoInput, condition: ModelTodoConditionInput? = nil) {
+  public init(input: DeleteUserInput, condition: ModelUserConditionInput? = nil) {
     self.input = input
     self.condition = condition
   }
@@ -812,7 +1090,7 @@ public final class DeleteTodoMutation: GraphQLMutation {
     public static let possibleTypes = ["Mutation"]
 
     public static let selections: [GraphQLSelection] = [
-      GraphQLField("deleteTodo", arguments: ["input": GraphQLVariable("input"), "condition": GraphQLVariable("condition")], type: .object(DeleteTodo.selections)),
+      GraphQLField("deleteUser", arguments: ["input": GraphQLVariable("input"), "condition": GraphQLVariable("condition")], type: .object(DeleteUser.selections)),
     ]
 
     public var snapshot: Snapshot
@@ -821,27 +1099,29 @@ public final class DeleteTodoMutation: GraphQLMutation {
       self.snapshot = snapshot
     }
 
-    public init(deleteTodo: DeleteTodo? = nil) {
-      self.init(snapshot: ["__typename": "Mutation", "deleteTodo": deleteTodo.flatMap { $0.snapshot }])
+    public init(deleteUser: DeleteUser? = nil) {
+      self.init(snapshot: ["__typename": "Mutation", "deleteUser": deleteUser.flatMap { $0.snapshot }])
     }
 
-    public var deleteTodo: DeleteTodo? {
+    public var deleteUser: DeleteUser? {
       get {
-        return (snapshot["deleteTodo"] as? Snapshot).flatMap { DeleteTodo(snapshot: $0) }
+        return (snapshot["deleteUser"] as? Snapshot).flatMap { DeleteUser(snapshot: $0) }
       }
       set {
-        snapshot.updateValue(newValue?.snapshot, forKey: "deleteTodo")
+        snapshot.updateValue(newValue?.snapshot, forKey: "deleteUser")
       }
     }
 
-    public struct DeleteTodo: GraphQLSelectionSet {
-      public static let possibleTypes = ["Todo"]
+    public struct DeleteUser: GraphQLSelectionSet {
+      public static let possibleTypes = ["User"]
 
       public static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
         GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-        GraphQLField("name", type: .nonNull(.scalar(String.self))),
-        GraphQLField("description", type: .scalar(String.self)),
+        GraphQLField("username", type: .nonNull(.scalar(String.self))),
+        GraphQLField("firstName", type: .scalar(String.self)),
+        GraphQLField("lastName", type: .scalar(String.self)),
+        GraphQLField("image", type: .scalar(String.self)),
       ]
 
       public var snapshot: Snapshot
@@ -850,8 +1130,8 @@ public final class DeleteTodoMutation: GraphQLMutation {
         self.snapshot = snapshot
       }
 
-      public init(id: GraphQLID, name: String, description: String? = nil) {
-        self.init(snapshot: ["__typename": "Todo", "id": id, "name": name, "description": description])
+      public init(id: GraphQLID, username: String, firstName: String? = nil, lastName: String? = nil, image: String? = nil) {
+        self.init(snapshot: ["__typename": "User", "id": id, "username": username, "firstName": firstName, "lastName": lastName, "image": image])
       }
 
       public var __typename: String {
@@ -872,30 +1152,321 @@ public final class DeleteTodoMutation: GraphQLMutation {
         }
       }
 
-      public var name: String {
+      public var username: String {
         get {
-          return snapshot["name"]! as! String
+          return snapshot["username"]! as! String
         }
         set {
-          snapshot.updateValue(newValue, forKey: "name")
+          snapshot.updateValue(newValue, forKey: "username")
         }
       }
 
-      public var description: String? {
+      public var firstName: String? {
         get {
-          return snapshot["description"] as? String
+          return snapshot["firstName"] as? String
         }
         set {
-          snapshot.updateValue(newValue, forKey: "description")
+          snapshot.updateValue(newValue, forKey: "firstName")
+        }
+      }
+
+      public var lastName: String? {
+        get {
+          return snapshot["lastName"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "lastName")
+        }
+      }
+
+      public var image: String? {
+        get {
+          return snapshot["image"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "image")
         }
       }
     }
   }
 }
 
-public final class GetTodoQuery: GraphQLQuery {
+public final class CreateRecordingMutation: GraphQLMutation {
   public static let operationString =
-    "query GetTodo($id: ID!) {\n  getTodo(id: $id) {\n    __typename\n    id\n    name\n    description\n  }\n}"
+    "mutation CreateRecording($input: CreateRecordingInput!, $condition: ModelRecordingConditionInput) {\n  createRecording(input: $input, condition: $condition) {\n    __typename\n    id\n    content\n  }\n}"
+
+  public var input: CreateRecordingInput
+  public var condition: ModelRecordingConditionInput?
+
+  public init(input: CreateRecordingInput, condition: ModelRecordingConditionInput? = nil) {
+    self.input = input
+    self.condition = condition
+  }
+
+  public var variables: GraphQLMap? {
+    return ["input": input, "condition": condition]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes = ["Mutation"]
+
+    public static let selections: [GraphQLSelection] = [
+      GraphQLField("createRecording", arguments: ["input": GraphQLVariable("input"), "condition": GraphQLVariable("condition")], type: .object(CreateRecording.selections)),
+    ]
+
+    public var snapshot: Snapshot
+
+    public init(snapshot: Snapshot) {
+      self.snapshot = snapshot
+    }
+
+    public init(createRecording: CreateRecording? = nil) {
+      self.init(snapshot: ["__typename": "Mutation", "createRecording": createRecording.flatMap { $0.snapshot }])
+    }
+
+    public var createRecording: CreateRecording? {
+      get {
+        return (snapshot["createRecording"] as? Snapshot).flatMap { CreateRecording(snapshot: $0) }
+      }
+      set {
+        snapshot.updateValue(newValue?.snapshot, forKey: "createRecording")
+      }
+    }
+
+    public struct CreateRecording: GraphQLSelectionSet {
+      public static let possibleTypes = ["Recording"]
+
+      public static let selections: [GraphQLSelection] = [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+        GraphQLField("content", type: .scalar(String.self)),
+      ]
+
+      public var snapshot: Snapshot
+
+      public init(snapshot: Snapshot) {
+        self.snapshot = snapshot
+      }
+
+      public init(id: GraphQLID, content: String? = nil) {
+        self.init(snapshot: ["__typename": "Recording", "id": id, "content": content])
+      }
+
+      public var __typename: String {
+        get {
+          return snapshot["__typename"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var id: GraphQLID {
+        get {
+          return snapshot["id"]! as! GraphQLID
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "id")
+        }
+      }
+
+      public var content: String? {
+        get {
+          return snapshot["content"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "content")
+        }
+      }
+    }
+  }
+}
+
+public final class UpdateRecordingMutation: GraphQLMutation {
+  public static let operationString =
+    "mutation UpdateRecording($input: UpdateRecordingInput!, $condition: ModelRecordingConditionInput) {\n  updateRecording(input: $input, condition: $condition) {\n    __typename\n    id\n    content\n  }\n}"
+
+  public var input: UpdateRecordingInput
+  public var condition: ModelRecordingConditionInput?
+
+  public init(input: UpdateRecordingInput, condition: ModelRecordingConditionInput? = nil) {
+    self.input = input
+    self.condition = condition
+  }
+
+  public var variables: GraphQLMap? {
+    return ["input": input, "condition": condition]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes = ["Mutation"]
+
+    public static let selections: [GraphQLSelection] = [
+      GraphQLField("updateRecording", arguments: ["input": GraphQLVariable("input"), "condition": GraphQLVariable("condition")], type: .object(UpdateRecording.selections)),
+    ]
+
+    public var snapshot: Snapshot
+
+    public init(snapshot: Snapshot) {
+      self.snapshot = snapshot
+    }
+
+    public init(updateRecording: UpdateRecording? = nil) {
+      self.init(snapshot: ["__typename": "Mutation", "updateRecording": updateRecording.flatMap { $0.snapshot }])
+    }
+
+    public var updateRecording: UpdateRecording? {
+      get {
+        return (snapshot["updateRecording"] as? Snapshot).flatMap { UpdateRecording(snapshot: $0) }
+      }
+      set {
+        snapshot.updateValue(newValue?.snapshot, forKey: "updateRecording")
+      }
+    }
+
+    public struct UpdateRecording: GraphQLSelectionSet {
+      public static let possibleTypes = ["Recording"]
+
+      public static let selections: [GraphQLSelection] = [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+        GraphQLField("content", type: .scalar(String.self)),
+      ]
+
+      public var snapshot: Snapshot
+
+      public init(snapshot: Snapshot) {
+        self.snapshot = snapshot
+      }
+
+      public init(id: GraphQLID, content: String? = nil) {
+        self.init(snapshot: ["__typename": "Recording", "id": id, "content": content])
+      }
+
+      public var __typename: String {
+        get {
+          return snapshot["__typename"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var id: GraphQLID {
+        get {
+          return snapshot["id"]! as! GraphQLID
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "id")
+        }
+      }
+
+      public var content: String? {
+        get {
+          return snapshot["content"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "content")
+        }
+      }
+    }
+  }
+}
+
+public final class DeleteRecordingMutation: GraphQLMutation {
+  public static let operationString =
+    "mutation DeleteRecording($input: DeleteRecordingInput!, $condition: ModelRecordingConditionInput) {\n  deleteRecording(input: $input, condition: $condition) {\n    __typename\n    id\n    content\n  }\n}"
+
+  public var input: DeleteRecordingInput
+  public var condition: ModelRecordingConditionInput?
+
+  public init(input: DeleteRecordingInput, condition: ModelRecordingConditionInput? = nil) {
+    self.input = input
+    self.condition = condition
+  }
+
+  public var variables: GraphQLMap? {
+    return ["input": input, "condition": condition]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes = ["Mutation"]
+
+    public static let selections: [GraphQLSelection] = [
+      GraphQLField("deleteRecording", arguments: ["input": GraphQLVariable("input"), "condition": GraphQLVariable("condition")], type: .object(DeleteRecording.selections)),
+    ]
+
+    public var snapshot: Snapshot
+
+    public init(snapshot: Snapshot) {
+      self.snapshot = snapshot
+    }
+
+    public init(deleteRecording: DeleteRecording? = nil) {
+      self.init(snapshot: ["__typename": "Mutation", "deleteRecording": deleteRecording.flatMap { $0.snapshot }])
+    }
+
+    public var deleteRecording: DeleteRecording? {
+      get {
+        return (snapshot["deleteRecording"] as? Snapshot).flatMap { DeleteRecording(snapshot: $0) }
+      }
+      set {
+        snapshot.updateValue(newValue?.snapshot, forKey: "deleteRecording")
+      }
+    }
+
+    public struct DeleteRecording: GraphQLSelectionSet {
+      public static let possibleTypes = ["Recording"]
+
+      public static let selections: [GraphQLSelection] = [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+        GraphQLField("content", type: .scalar(String.self)),
+      ]
+
+      public var snapshot: Snapshot
+
+      public init(snapshot: Snapshot) {
+        self.snapshot = snapshot
+      }
+
+      public init(id: GraphQLID, content: String? = nil) {
+        self.init(snapshot: ["__typename": "Recording", "id": id, "content": content])
+      }
+
+      public var __typename: String {
+        get {
+          return snapshot["__typename"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var id: GraphQLID {
+        get {
+          return snapshot["id"]! as! GraphQLID
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "id")
+        }
+      }
+
+      public var content: String? {
+        get {
+          return snapshot["content"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "content")
+        }
+      }
+    }
+  }
+}
+
+public final class GetUserQuery: GraphQLQuery {
+  public static let operationString =
+    "query GetUser($id: ID!) {\n  getUser(id: $id) {\n    __typename\n    id\n    username\n    firstName\n    lastName\n    image\n  }\n}"
 
   public var id: GraphQLID
 
@@ -911,7 +1482,7 @@ public final class GetTodoQuery: GraphQLQuery {
     public static let possibleTypes = ["Query"]
 
     public static let selections: [GraphQLSelection] = [
-      GraphQLField("getTodo", arguments: ["id": GraphQLVariable("id")], type: .object(GetTodo.selections)),
+      GraphQLField("getUser", arguments: ["id": GraphQLVariable("id")], type: .object(GetUser.selections)),
     ]
 
     public var snapshot: Snapshot
@@ -920,27 +1491,29 @@ public final class GetTodoQuery: GraphQLQuery {
       self.snapshot = snapshot
     }
 
-    public init(getTodo: GetTodo? = nil) {
-      self.init(snapshot: ["__typename": "Query", "getTodo": getTodo.flatMap { $0.snapshot }])
+    public init(getUser: GetUser? = nil) {
+      self.init(snapshot: ["__typename": "Query", "getUser": getUser.flatMap { $0.snapshot }])
     }
 
-    public var getTodo: GetTodo? {
+    public var getUser: GetUser? {
       get {
-        return (snapshot["getTodo"] as? Snapshot).flatMap { GetTodo(snapshot: $0) }
+        return (snapshot["getUser"] as? Snapshot).flatMap { GetUser(snapshot: $0) }
       }
       set {
-        snapshot.updateValue(newValue?.snapshot, forKey: "getTodo")
+        snapshot.updateValue(newValue?.snapshot, forKey: "getUser")
       }
     }
 
-    public struct GetTodo: GraphQLSelectionSet {
-      public static let possibleTypes = ["Todo"]
+    public struct GetUser: GraphQLSelectionSet {
+      public static let possibleTypes = ["User"]
 
       public static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
         GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-        GraphQLField("name", type: .nonNull(.scalar(String.self))),
-        GraphQLField("description", type: .scalar(String.self)),
+        GraphQLField("username", type: .nonNull(.scalar(String.self))),
+        GraphQLField("firstName", type: .scalar(String.self)),
+        GraphQLField("lastName", type: .scalar(String.self)),
+        GraphQLField("image", type: .scalar(String.self)),
       ]
 
       public var snapshot: Snapshot
@@ -949,8 +1522,8 @@ public final class GetTodoQuery: GraphQLQuery {
         self.snapshot = snapshot
       }
 
-      public init(id: GraphQLID, name: String, description: String? = nil) {
-        self.init(snapshot: ["__typename": "Todo", "id": id, "name": name, "description": description])
+      public init(id: GraphQLID, username: String, firstName: String? = nil, lastName: String? = nil, image: String? = nil) {
+        self.init(snapshot: ["__typename": "User", "id": id, "username": username, "firstName": firstName, "lastName": lastName, "image": image])
       }
 
       public var __typename: String {
@@ -971,36 +1544,54 @@ public final class GetTodoQuery: GraphQLQuery {
         }
       }
 
-      public var name: String {
+      public var username: String {
         get {
-          return snapshot["name"]! as! String
+          return snapshot["username"]! as! String
         }
         set {
-          snapshot.updateValue(newValue, forKey: "name")
+          snapshot.updateValue(newValue, forKey: "username")
         }
       }
 
-      public var description: String? {
+      public var firstName: String? {
         get {
-          return snapshot["description"] as? String
+          return snapshot["firstName"] as? String
         }
         set {
-          snapshot.updateValue(newValue, forKey: "description")
+          snapshot.updateValue(newValue, forKey: "firstName")
+        }
+      }
+
+      public var lastName: String? {
+        get {
+          return snapshot["lastName"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "lastName")
+        }
+      }
+
+      public var image: String? {
+        get {
+          return snapshot["image"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "image")
         }
       }
     }
   }
 }
 
-public final class ListTodosQuery: GraphQLQuery {
+public final class ListUsersQuery: GraphQLQuery {
   public static let operationString =
-    "query ListTodos($filter: ModelTodoFilterInput, $limit: Int, $nextToken: String) {\n  listTodos(filter: $filter, limit: $limit, nextToken: $nextToken) {\n    __typename\n    items {\n      __typename\n      id\n      name\n      description\n    }\n    nextToken\n  }\n}"
+    "query ListUsers($filter: ModelUserFilterInput, $limit: Int, $nextToken: String) {\n  listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {\n    __typename\n    items {\n      __typename\n      id\n      username\n      firstName\n      lastName\n      image\n    }\n    nextToken\n  }\n}"
 
-  public var filter: ModelTodoFilterInput?
+  public var filter: ModelUserFilterInput?
   public var limit: Int?
   public var nextToken: String?
 
-  public init(filter: ModelTodoFilterInput? = nil, limit: Int? = nil, nextToken: String? = nil) {
+  public init(filter: ModelUserFilterInput? = nil, limit: Int? = nil, nextToken: String? = nil) {
     self.filter = filter
     self.limit = limit
     self.nextToken = nextToken
@@ -1014,7 +1605,7 @@ public final class ListTodosQuery: GraphQLQuery {
     public static let possibleTypes = ["Query"]
 
     public static let selections: [GraphQLSelection] = [
-      GraphQLField("listTodos", arguments: ["filter": GraphQLVariable("filter"), "limit": GraphQLVariable("limit"), "nextToken": GraphQLVariable("nextToken")], type: .object(ListTodo.selections)),
+      GraphQLField("listUsers", arguments: ["filter": GraphQLVariable("filter"), "limit": GraphQLVariable("limit"), "nextToken": GraphQLVariable("nextToken")], type: .object(ListUser.selections)),
     ]
 
     public var snapshot: Snapshot
@@ -1023,21 +1614,21 @@ public final class ListTodosQuery: GraphQLQuery {
       self.snapshot = snapshot
     }
 
-    public init(listTodos: ListTodo? = nil) {
-      self.init(snapshot: ["__typename": "Query", "listTodos": listTodos.flatMap { $0.snapshot }])
+    public init(listUsers: ListUser? = nil) {
+      self.init(snapshot: ["__typename": "Query", "listUsers": listUsers.flatMap { $0.snapshot }])
     }
 
-    public var listTodos: ListTodo? {
+    public var listUsers: ListUser? {
       get {
-        return (snapshot["listTodos"] as? Snapshot).flatMap { ListTodo(snapshot: $0) }
+        return (snapshot["listUsers"] as? Snapshot).flatMap { ListUser(snapshot: $0) }
       }
       set {
-        snapshot.updateValue(newValue?.snapshot, forKey: "listTodos")
+        snapshot.updateValue(newValue?.snapshot, forKey: "listUsers")
       }
     }
 
-    public struct ListTodo: GraphQLSelectionSet {
-      public static let possibleTypes = ["ModelTodoConnection"]
+    public struct ListUser: GraphQLSelectionSet {
+      public static let possibleTypes = ["ModelUserConnection"]
 
       public static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
@@ -1052,7 +1643,7 @@ public final class ListTodosQuery: GraphQLQuery {
       }
 
       public init(items: [Item?]? = nil, nextToken: String? = nil) {
-        self.init(snapshot: ["__typename": "ModelTodoConnection", "items": items.flatMap { $0.map { $0.flatMap { $0.snapshot } } }, "nextToken": nextToken])
+        self.init(snapshot: ["__typename": "ModelUserConnection", "items": items.flatMap { $0.map { $0.flatMap { $0.snapshot } } }, "nextToken": nextToken])
       }
 
       public var __typename: String {
@@ -1083,13 +1674,15 @@ public final class ListTodosQuery: GraphQLQuery {
       }
 
       public struct Item: GraphQLSelectionSet {
-        public static let possibleTypes = ["Todo"]
+        public static let possibleTypes = ["User"]
 
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-          GraphQLField("name", type: .nonNull(.scalar(String.self))),
-          GraphQLField("description", type: .scalar(String.self)),
+          GraphQLField("username", type: .nonNull(.scalar(String.self))),
+          GraphQLField("firstName", type: .scalar(String.self)),
+          GraphQLField("lastName", type: .scalar(String.self)),
+          GraphQLField("image", type: .scalar(String.self)),
         ]
 
         public var snapshot: Snapshot
@@ -1098,8 +1691,8 @@ public final class ListTodosQuery: GraphQLQuery {
           self.snapshot = snapshot
         }
 
-        public init(id: GraphQLID, name: String, description: String? = nil) {
-          self.init(snapshot: ["__typename": "Todo", "id": id, "name": name, "description": description])
+        public init(id: GraphQLID, username: String, firstName: String? = nil, lastName: String? = nil, image: String? = nil) {
+          self.init(snapshot: ["__typename": "User", "id": id, "username": username, "firstName": firstName, "lastName": lastName, "image": image])
         }
 
         public var __typename: String {
@@ -1120,21 +1713,39 @@ public final class ListTodosQuery: GraphQLQuery {
           }
         }
 
-        public var name: String {
+        public var username: String {
           get {
-            return snapshot["name"]! as! String
+            return snapshot["username"]! as! String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "name")
+            snapshot.updateValue(newValue, forKey: "username")
           }
         }
 
-        public var description: String? {
+        public var firstName: String? {
           get {
-            return snapshot["description"] as? String
+            return snapshot["firstName"] as? String
           }
           set {
-            snapshot.updateValue(newValue, forKey: "description")
+            snapshot.updateValue(newValue, forKey: "firstName")
+          }
+        }
+
+        public var lastName: String? {
+          get {
+            return snapshot["lastName"] as? String
+          }
+          set {
+            snapshot.updateValue(newValue, forKey: "lastName")
+          }
+        }
+
+        public var image: String? {
+          get {
+            return snapshot["image"] as? String
+          }
+          set {
+            snapshot.updateValue(newValue, forKey: "image")
           }
         }
       }
@@ -1142,18 +1753,25 @@ public final class ListTodosQuery: GraphQLQuery {
   }
 }
 
-public final class OnCreateTodoSubscription: GraphQLSubscription {
+public final class GetRecordingQuery: GraphQLQuery {
   public static let operationString =
-    "subscription OnCreateTodo {\n  onCreateTodo {\n    __typename\n    id\n    name\n    description\n  }\n}"
+    "query GetRecording($id: ID!) {\n  getRecording(id: $id) {\n    __typename\n    id\n    content\n  }\n}"
 
-  public init() {
+  public var id: GraphQLID
+
+  public init(id: GraphQLID) {
+    self.id = id
+  }
+
+  public var variables: GraphQLMap? {
+    return ["id": id]
   }
 
   public struct Data: GraphQLSelectionSet {
-    public static let possibleTypes = ["Subscription"]
+    public static let possibleTypes = ["Query"]
 
     public static let selections: [GraphQLSelection] = [
-      GraphQLField("onCreateTodo", type: .object(OnCreateTodo.selections)),
+      GraphQLField("getRecording", arguments: ["id": GraphQLVariable("id")], type: .object(GetRecording.selections)),
     ]
 
     public var snapshot: Snapshot
@@ -1162,27 +1780,26 @@ public final class OnCreateTodoSubscription: GraphQLSubscription {
       self.snapshot = snapshot
     }
 
-    public init(onCreateTodo: OnCreateTodo? = nil) {
-      self.init(snapshot: ["__typename": "Subscription", "onCreateTodo": onCreateTodo.flatMap { $0.snapshot }])
+    public init(getRecording: GetRecording? = nil) {
+      self.init(snapshot: ["__typename": "Query", "getRecording": getRecording.flatMap { $0.snapshot }])
     }
 
-    public var onCreateTodo: OnCreateTodo? {
+    public var getRecording: GetRecording? {
       get {
-        return (snapshot["onCreateTodo"] as? Snapshot).flatMap { OnCreateTodo(snapshot: $0) }
+        return (snapshot["getRecording"] as? Snapshot).flatMap { GetRecording(snapshot: $0) }
       }
       set {
-        snapshot.updateValue(newValue?.snapshot, forKey: "onCreateTodo")
+        snapshot.updateValue(newValue?.snapshot, forKey: "getRecording")
       }
     }
 
-    public struct OnCreateTodo: GraphQLSelectionSet {
-      public static let possibleTypes = ["Todo"]
+    public struct GetRecording: GraphQLSelectionSet {
+      public static let possibleTypes = ["Recording"]
 
       public static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
         GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-        GraphQLField("name", type: .nonNull(.scalar(String.self))),
-        GraphQLField("description", type: .scalar(String.self)),
+        GraphQLField("content", type: .scalar(String.self)),
       ]
 
       public var snapshot: Snapshot
@@ -1191,8 +1808,8 @@ public final class OnCreateTodoSubscription: GraphQLSubscription {
         self.snapshot = snapshot
       }
 
-      public init(id: GraphQLID, name: String, description: String? = nil) {
-        self.init(snapshot: ["__typename": "Todo", "id": id, "name": name, "description": description])
+      public init(id: GraphQLID, content: String? = nil) {
+        self.init(snapshot: ["__typename": "Recording", "id": id, "content": content])
       }
 
       public var __typename: String {
@@ -1213,39 +1830,41 @@ public final class OnCreateTodoSubscription: GraphQLSubscription {
         }
       }
 
-      public var name: String {
+      public var content: String? {
         get {
-          return snapshot["name"]! as! String
+          return snapshot["content"] as? String
         }
         set {
-          snapshot.updateValue(newValue, forKey: "name")
-        }
-      }
-
-      public var description: String? {
-        get {
-          return snapshot["description"] as? String
-        }
-        set {
-          snapshot.updateValue(newValue, forKey: "description")
+          snapshot.updateValue(newValue, forKey: "content")
         }
       }
     }
   }
 }
 
-public final class OnUpdateTodoSubscription: GraphQLSubscription {
+public final class ListRecordingsQuery: GraphQLQuery {
   public static let operationString =
-    "subscription OnUpdateTodo {\n  onUpdateTodo {\n    __typename\n    id\n    name\n    description\n  }\n}"
+    "query ListRecordings($filter: ModelRecordingFilterInput, $limit: Int, $nextToken: String) {\n  listRecordings(filter: $filter, limit: $limit, nextToken: $nextToken) {\n    __typename\n    items {\n      __typename\n      id\n      content\n    }\n    nextToken\n  }\n}"
 
-  public init() {
+  public var filter: ModelRecordingFilterInput?
+  public var limit: Int?
+  public var nextToken: String?
+
+  public init(filter: ModelRecordingFilterInput? = nil, limit: Int? = nil, nextToken: String? = nil) {
+    self.filter = filter
+    self.limit = limit
+    self.nextToken = nextToken
+  }
+
+  public var variables: GraphQLMap? {
+    return ["filter": filter, "limit": limit, "nextToken": nextToken]
   }
 
   public struct Data: GraphQLSelectionSet {
-    public static let possibleTypes = ["Subscription"]
+    public static let possibleTypes = ["Query"]
 
     public static let selections: [GraphQLSelection] = [
-      GraphQLField("onUpdateTodo", type: .object(OnUpdateTodo.selections)),
+      GraphQLField("listRecordings", arguments: ["filter": GraphQLVariable("filter"), "limit": GraphQLVariable("limit"), "nextToken": GraphQLVariable("nextToken")], type: .object(ListRecording.selections)),
     ]
 
     public var snapshot: Snapshot
@@ -1254,27 +1873,26 @@ public final class OnUpdateTodoSubscription: GraphQLSubscription {
       self.snapshot = snapshot
     }
 
-    public init(onUpdateTodo: OnUpdateTodo? = nil) {
-      self.init(snapshot: ["__typename": "Subscription", "onUpdateTodo": onUpdateTodo.flatMap { $0.snapshot }])
+    public init(listRecordings: ListRecording? = nil) {
+      self.init(snapshot: ["__typename": "Query", "listRecordings": listRecordings.flatMap { $0.snapshot }])
     }
 
-    public var onUpdateTodo: OnUpdateTodo? {
+    public var listRecordings: ListRecording? {
       get {
-        return (snapshot["onUpdateTodo"] as? Snapshot).flatMap { OnUpdateTodo(snapshot: $0) }
+        return (snapshot["listRecordings"] as? Snapshot).flatMap { ListRecording(snapshot: $0) }
       }
       set {
-        snapshot.updateValue(newValue?.snapshot, forKey: "onUpdateTodo")
+        snapshot.updateValue(newValue?.snapshot, forKey: "listRecordings")
       }
     }
 
-    public struct OnUpdateTodo: GraphQLSelectionSet {
-      public static let possibleTypes = ["Todo"]
+    public struct ListRecording: GraphQLSelectionSet {
+      public static let possibleTypes = ["ModelRecordingConnection"]
 
       public static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-        GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-        GraphQLField("name", type: .nonNull(.scalar(String.self))),
-        GraphQLField("description", type: .scalar(String.self)),
+        GraphQLField("items", type: .list(.object(Item.selections))),
+        GraphQLField("nextToken", type: .scalar(String.self)),
       ]
 
       public var snapshot: Snapshot
@@ -1283,8 +1901,8 @@ public final class OnUpdateTodoSubscription: GraphQLSubscription {
         self.snapshot = snapshot
       }
 
-      public init(id: GraphQLID, name: String, description: String? = nil) {
-        self.init(snapshot: ["__typename": "Todo", "id": id, "name": name, "description": description])
+      public init(items: [Item?]? = nil, nextToken: String? = nil) {
+        self.init(snapshot: ["__typename": "ModelRecordingConnection", "items": items.flatMap { $0.map { $0.flatMap { $0.snapshot } } }, "nextToken": nextToken])
       }
 
       public var __typename: String {
@@ -1296,39 +1914,77 @@ public final class OnUpdateTodoSubscription: GraphQLSubscription {
         }
       }
 
-      public var id: GraphQLID {
+      public var items: [Item?]? {
         get {
-          return snapshot["id"]! as! GraphQLID
+          return (snapshot["items"] as? [Snapshot?]).flatMap { $0.map { $0.flatMap { Item(snapshot: $0) } } }
         }
         set {
-          snapshot.updateValue(newValue, forKey: "id")
+          snapshot.updateValue(newValue.flatMap { $0.map { $0.flatMap { $0.snapshot } } }, forKey: "items")
         }
       }
 
-      public var name: String {
+      public var nextToken: String? {
         get {
-          return snapshot["name"]! as! String
+          return snapshot["nextToken"] as? String
         }
         set {
-          snapshot.updateValue(newValue, forKey: "name")
+          snapshot.updateValue(newValue, forKey: "nextToken")
         }
       }
 
-      public var description: String? {
-        get {
-          return snapshot["description"] as? String
+      public struct Item: GraphQLSelectionSet {
+        public static let possibleTypes = ["Recording"]
+
+        public static let selections: [GraphQLSelection] = [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+          GraphQLField("content", type: .scalar(String.self)),
+        ]
+
+        public var snapshot: Snapshot
+
+        public init(snapshot: Snapshot) {
+          self.snapshot = snapshot
         }
-        set {
-          snapshot.updateValue(newValue, forKey: "description")
+
+        public init(id: GraphQLID, content: String? = nil) {
+          self.init(snapshot: ["__typename": "Recording", "id": id, "content": content])
+        }
+
+        public var __typename: String {
+          get {
+            return snapshot["__typename"]! as! String
+          }
+          set {
+            snapshot.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var id: GraphQLID {
+          get {
+            return snapshot["id"]! as! GraphQLID
+          }
+          set {
+            snapshot.updateValue(newValue, forKey: "id")
+          }
+        }
+
+        public var content: String? {
+          get {
+            return snapshot["content"] as? String
+          }
+          set {
+            snapshot.updateValue(newValue, forKey: "content")
+          }
         }
       }
     }
   }
 }
 
-public final class OnDeleteTodoSubscription: GraphQLSubscription {
+public final class OnCreateUserSubscription: GraphQLSubscription {
   public static let operationString =
-    "subscription OnDeleteTodo {\n  onDeleteTodo {\n    __typename\n    id\n    name\n    description\n  }\n}"
+    "subscription OnCreateUser {\n  onCreateUser {\n    __typename\n    id\n    username\n    firstName\n    lastName\n    image\n  }\n}"
 
   public init() {
   }
@@ -1337,7 +1993,7 @@ public final class OnDeleteTodoSubscription: GraphQLSubscription {
     public static let possibleTypes = ["Subscription"]
 
     public static let selections: [GraphQLSelection] = [
-      GraphQLField("onDeleteTodo", type: .object(OnDeleteTodo.selections)),
+      GraphQLField("onCreateUser", type: .object(OnCreateUser.selections)),
     ]
 
     public var snapshot: Snapshot
@@ -1346,27 +2002,29 @@ public final class OnDeleteTodoSubscription: GraphQLSubscription {
       self.snapshot = snapshot
     }
 
-    public init(onDeleteTodo: OnDeleteTodo? = nil) {
-      self.init(snapshot: ["__typename": "Subscription", "onDeleteTodo": onDeleteTodo.flatMap { $0.snapshot }])
+    public init(onCreateUser: OnCreateUser? = nil) {
+      self.init(snapshot: ["__typename": "Subscription", "onCreateUser": onCreateUser.flatMap { $0.snapshot }])
     }
 
-    public var onDeleteTodo: OnDeleteTodo? {
+    public var onCreateUser: OnCreateUser? {
       get {
-        return (snapshot["onDeleteTodo"] as? Snapshot).flatMap { OnDeleteTodo(snapshot: $0) }
+        return (snapshot["onCreateUser"] as? Snapshot).flatMap { OnCreateUser(snapshot: $0) }
       }
       set {
-        snapshot.updateValue(newValue?.snapshot, forKey: "onDeleteTodo")
+        snapshot.updateValue(newValue?.snapshot, forKey: "onCreateUser")
       }
     }
 
-    public struct OnDeleteTodo: GraphQLSelectionSet {
-      public static let possibleTypes = ["Todo"]
+    public struct OnCreateUser: GraphQLSelectionSet {
+      public static let possibleTypes = ["User"]
 
       public static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
         GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-        GraphQLField("name", type: .nonNull(.scalar(String.self))),
-        GraphQLField("description", type: .scalar(String.self)),
+        GraphQLField("username", type: .nonNull(.scalar(String.self))),
+        GraphQLField("firstName", type: .scalar(String.self)),
+        GraphQLField("lastName", type: .scalar(String.self)),
+        GraphQLField("image", type: .scalar(String.self)),
       ]
 
       public var snapshot: Snapshot
@@ -1375,8 +2033,8 @@ public final class OnDeleteTodoSubscription: GraphQLSubscription {
         self.snapshot = snapshot
       }
 
-      public init(id: GraphQLID, name: String, description: String? = nil) {
-        self.init(snapshot: ["__typename": "Todo", "id": id, "name": name, "description": description])
+      public init(id: GraphQLID, username: String, firstName: String? = nil, lastName: String? = nil, image: String? = nil) {
+        self.init(snapshot: ["__typename": "User", "id": id, "username": username, "firstName": firstName, "lastName": lastName, "image": image])
       }
 
       public var __typename: String {
@@ -1397,21 +2055,509 @@ public final class OnDeleteTodoSubscription: GraphQLSubscription {
         }
       }
 
-      public var name: String {
+      public var username: String {
         get {
-          return snapshot["name"]! as! String
+          return snapshot["username"]! as! String
         }
         set {
-          snapshot.updateValue(newValue, forKey: "name")
+          snapshot.updateValue(newValue, forKey: "username")
         }
       }
 
-      public var description: String? {
+      public var firstName: String? {
         get {
-          return snapshot["description"] as? String
+          return snapshot["firstName"] as? String
         }
         set {
-          snapshot.updateValue(newValue, forKey: "description")
+          snapshot.updateValue(newValue, forKey: "firstName")
+        }
+      }
+
+      public var lastName: String? {
+        get {
+          return snapshot["lastName"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "lastName")
+        }
+      }
+
+      public var image: String? {
+        get {
+          return snapshot["image"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "image")
+        }
+      }
+    }
+  }
+}
+
+public final class OnUpdateUserSubscription: GraphQLSubscription {
+  public static let operationString =
+    "subscription OnUpdateUser {\n  onUpdateUser {\n    __typename\n    id\n    username\n    firstName\n    lastName\n    image\n  }\n}"
+
+  public init() {
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes = ["Subscription"]
+
+    public static let selections: [GraphQLSelection] = [
+      GraphQLField("onUpdateUser", type: .object(OnUpdateUser.selections)),
+    ]
+
+    public var snapshot: Snapshot
+
+    public init(snapshot: Snapshot) {
+      self.snapshot = snapshot
+    }
+
+    public init(onUpdateUser: OnUpdateUser? = nil) {
+      self.init(snapshot: ["__typename": "Subscription", "onUpdateUser": onUpdateUser.flatMap { $0.snapshot }])
+    }
+
+    public var onUpdateUser: OnUpdateUser? {
+      get {
+        return (snapshot["onUpdateUser"] as? Snapshot).flatMap { OnUpdateUser(snapshot: $0) }
+      }
+      set {
+        snapshot.updateValue(newValue?.snapshot, forKey: "onUpdateUser")
+      }
+    }
+
+    public struct OnUpdateUser: GraphQLSelectionSet {
+      public static let possibleTypes = ["User"]
+
+      public static let selections: [GraphQLSelection] = [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+        GraphQLField("username", type: .nonNull(.scalar(String.self))),
+        GraphQLField("firstName", type: .scalar(String.self)),
+        GraphQLField("lastName", type: .scalar(String.self)),
+        GraphQLField("image", type: .scalar(String.self)),
+      ]
+
+      public var snapshot: Snapshot
+
+      public init(snapshot: Snapshot) {
+        self.snapshot = snapshot
+      }
+
+      public init(id: GraphQLID, username: String, firstName: String? = nil, lastName: String? = nil, image: String? = nil) {
+        self.init(snapshot: ["__typename": "User", "id": id, "username": username, "firstName": firstName, "lastName": lastName, "image": image])
+      }
+
+      public var __typename: String {
+        get {
+          return snapshot["__typename"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var id: GraphQLID {
+        get {
+          return snapshot["id"]! as! GraphQLID
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "id")
+        }
+      }
+
+      public var username: String {
+        get {
+          return snapshot["username"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "username")
+        }
+      }
+
+      public var firstName: String? {
+        get {
+          return snapshot["firstName"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "firstName")
+        }
+      }
+
+      public var lastName: String? {
+        get {
+          return snapshot["lastName"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "lastName")
+        }
+      }
+
+      public var image: String? {
+        get {
+          return snapshot["image"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "image")
+        }
+      }
+    }
+  }
+}
+
+public final class OnDeleteUserSubscription: GraphQLSubscription {
+  public static let operationString =
+    "subscription OnDeleteUser {\n  onDeleteUser {\n    __typename\n    id\n    username\n    firstName\n    lastName\n    image\n  }\n}"
+
+  public init() {
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes = ["Subscription"]
+
+    public static let selections: [GraphQLSelection] = [
+      GraphQLField("onDeleteUser", type: .object(OnDeleteUser.selections)),
+    ]
+
+    public var snapshot: Snapshot
+
+    public init(snapshot: Snapshot) {
+      self.snapshot = snapshot
+    }
+
+    public init(onDeleteUser: OnDeleteUser? = nil) {
+      self.init(snapshot: ["__typename": "Subscription", "onDeleteUser": onDeleteUser.flatMap { $0.snapshot }])
+    }
+
+    public var onDeleteUser: OnDeleteUser? {
+      get {
+        return (snapshot["onDeleteUser"] as? Snapshot).flatMap { OnDeleteUser(snapshot: $0) }
+      }
+      set {
+        snapshot.updateValue(newValue?.snapshot, forKey: "onDeleteUser")
+      }
+    }
+
+    public struct OnDeleteUser: GraphQLSelectionSet {
+      public static let possibleTypes = ["User"]
+
+      public static let selections: [GraphQLSelection] = [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+        GraphQLField("username", type: .nonNull(.scalar(String.self))),
+        GraphQLField("firstName", type: .scalar(String.self)),
+        GraphQLField("lastName", type: .scalar(String.self)),
+        GraphQLField("image", type: .scalar(String.self)),
+      ]
+
+      public var snapshot: Snapshot
+
+      public init(snapshot: Snapshot) {
+        self.snapshot = snapshot
+      }
+
+      public init(id: GraphQLID, username: String, firstName: String? = nil, lastName: String? = nil, image: String? = nil) {
+        self.init(snapshot: ["__typename": "User", "id": id, "username": username, "firstName": firstName, "lastName": lastName, "image": image])
+      }
+
+      public var __typename: String {
+        get {
+          return snapshot["__typename"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var id: GraphQLID {
+        get {
+          return snapshot["id"]! as! GraphQLID
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "id")
+        }
+      }
+
+      public var username: String {
+        get {
+          return snapshot["username"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "username")
+        }
+      }
+
+      public var firstName: String? {
+        get {
+          return snapshot["firstName"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "firstName")
+        }
+      }
+
+      public var lastName: String? {
+        get {
+          return snapshot["lastName"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "lastName")
+        }
+      }
+
+      public var image: String? {
+        get {
+          return snapshot["image"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "image")
+        }
+      }
+    }
+  }
+}
+
+public final class OnCreateRecordingSubscription: GraphQLSubscription {
+  public static let operationString =
+    "subscription OnCreateRecording {\n  onCreateRecording {\n    __typename\n    id\n    content\n  }\n}"
+
+  public init() {
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes = ["Subscription"]
+
+    public static let selections: [GraphQLSelection] = [
+      GraphQLField("onCreateRecording", type: .object(OnCreateRecording.selections)),
+    ]
+
+    public var snapshot: Snapshot
+
+    public init(snapshot: Snapshot) {
+      self.snapshot = snapshot
+    }
+
+    public init(onCreateRecording: OnCreateRecording? = nil) {
+      self.init(snapshot: ["__typename": "Subscription", "onCreateRecording": onCreateRecording.flatMap { $0.snapshot }])
+    }
+
+    public var onCreateRecording: OnCreateRecording? {
+      get {
+        return (snapshot["onCreateRecording"] as? Snapshot).flatMap { OnCreateRecording(snapshot: $0) }
+      }
+      set {
+        snapshot.updateValue(newValue?.snapshot, forKey: "onCreateRecording")
+      }
+    }
+
+    public struct OnCreateRecording: GraphQLSelectionSet {
+      public static let possibleTypes = ["Recording"]
+
+      public static let selections: [GraphQLSelection] = [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+        GraphQLField("content", type: .scalar(String.self)),
+      ]
+
+      public var snapshot: Snapshot
+
+      public init(snapshot: Snapshot) {
+        self.snapshot = snapshot
+      }
+
+      public init(id: GraphQLID, content: String? = nil) {
+        self.init(snapshot: ["__typename": "Recording", "id": id, "content": content])
+      }
+
+      public var __typename: String {
+        get {
+          return snapshot["__typename"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var id: GraphQLID {
+        get {
+          return snapshot["id"]! as! GraphQLID
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "id")
+        }
+      }
+
+      public var content: String? {
+        get {
+          return snapshot["content"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "content")
+        }
+      }
+    }
+  }
+}
+
+public final class OnUpdateRecordingSubscription: GraphQLSubscription {
+  public static let operationString =
+    "subscription OnUpdateRecording {\n  onUpdateRecording {\n    __typename\n    id\n    content\n  }\n}"
+
+  public init() {
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes = ["Subscription"]
+
+    public static let selections: [GraphQLSelection] = [
+      GraphQLField("onUpdateRecording", type: .object(OnUpdateRecording.selections)),
+    ]
+
+    public var snapshot: Snapshot
+
+    public init(snapshot: Snapshot) {
+      self.snapshot = snapshot
+    }
+
+    public init(onUpdateRecording: OnUpdateRecording? = nil) {
+      self.init(snapshot: ["__typename": "Subscription", "onUpdateRecording": onUpdateRecording.flatMap { $0.snapshot }])
+    }
+
+    public var onUpdateRecording: OnUpdateRecording? {
+      get {
+        return (snapshot["onUpdateRecording"] as? Snapshot).flatMap { OnUpdateRecording(snapshot: $0) }
+      }
+      set {
+        snapshot.updateValue(newValue?.snapshot, forKey: "onUpdateRecording")
+      }
+    }
+
+    public struct OnUpdateRecording: GraphQLSelectionSet {
+      public static let possibleTypes = ["Recording"]
+
+      public static let selections: [GraphQLSelection] = [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+        GraphQLField("content", type: .scalar(String.self)),
+      ]
+
+      public var snapshot: Snapshot
+
+      public init(snapshot: Snapshot) {
+        self.snapshot = snapshot
+      }
+
+      public init(id: GraphQLID, content: String? = nil) {
+        self.init(snapshot: ["__typename": "Recording", "id": id, "content": content])
+      }
+
+      public var __typename: String {
+        get {
+          return snapshot["__typename"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var id: GraphQLID {
+        get {
+          return snapshot["id"]! as! GraphQLID
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "id")
+        }
+      }
+
+      public var content: String? {
+        get {
+          return snapshot["content"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "content")
+        }
+      }
+    }
+  }
+}
+
+public final class OnDeleteRecordingSubscription: GraphQLSubscription {
+  public static let operationString =
+    "subscription OnDeleteRecording {\n  onDeleteRecording {\n    __typename\n    id\n    content\n  }\n}"
+
+  public init() {
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes = ["Subscription"]
+
+    public static let selections: [GraphQLSelection] = [
+      GraphQLField("onDeleteRecording", type: .object(OnDeleteRecording.selections)),
+    ]
+
+    public var snapshot: Snapshot
+
+    public init(snapshot: Snapshot) {
+      self.snapshot = snapshot
+    }
+
+    public init(onDeleteRecording: OnDeleteRecording? = nil) {
+      self.init(snapshot: ["__typename": "Subscription", "onDeleteRecording": onDeleteRecording.flatMap { $0.snapshot }])
+    }
+
+    public var onDeleteRecording: OnDeleteRecording? {
+      get {
+        return (snapshot["onDeleteRecording"] as? Snapshot).flatMap { OnDeleteRecording(snapshot: $0) }
+      }
+      set {
+        snapshot.updateValue(newValue?.snapshot, forKey: "onDeleteRecording")
+      }
+    }
+
+    public struct OnDeleteRecording: GraphQLSelectionSet {
+      public static let possibleTypes = ["Recording"]
+
+      public static let selections: [GraphQLSelection] = [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+        GraphQLField("content", type: .scalar(String.self)),
+      ]
+
+      public var snapshot: Snapshot
+
+      public init(snapshot: Snapshot) {
+        self.snapshot = snapshot
+      }
+
+      public init(id: GraphQLID, content: String? = nil) {
+        self.init(snapshot: ["__typename": "Recording", "id": id, "content": content])
+      }
+
+      public var __typename: String {
+        get {
+          return snapshot["__typename"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var id: GraphQLID {
+        get {
+          return snapshot["id"]! as! GraphQLID
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "id")
+        }
+      }
+
+      public var content: String? {
+        get {
+          return snapshot["content"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "content")
         }
       }
     }

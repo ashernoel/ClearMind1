@@ -1,5 +1,12 @@
-type Todo @model {
+type User @model {
   id: ID!
-  name: String!
-  description: String
+  username: String!
+  firstName: String
+  lastName: String
+  image: String
+}
+
+type Recording @model {
+    id: ID!
+    content: String
 }
