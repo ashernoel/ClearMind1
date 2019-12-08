@@ -1,4 +1,10 @@
-type User @model {
+type User @model @auth (
+    rules: [
+          # { allow: private, operations: [read] } # allow authenticated users to read 
+        # { allow: groups, groups: ["Admin"], operations: [create, update, delete] }, # allow admins to mutate
+        { allow: public } # API key users can do everything?
+    ]
+) {
   id: ID!
   username: String!
   firstName: String
@@ -6,7 +12,14 @@ type User @model {
   image: String
 }
 
-type Recording @model {
+type Recording @model 
+@auth (
+    rules: [
+         # { allow: private, operations: [read] } # allow authenticated users to read 
+        # { allow: groups, groups: ["Admin"], operations: [create, update, delete] }, # allow admins to mutate
+        { allow: public } # API key users can do everything?
+    ]
+) {
     id: ID!
     content: String
 }

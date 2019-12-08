@@ -45,7 +45,9 @@
         ]
     },
     "useDefault": "manual",
-    "userPoolGroupList": [],
+    "userPoolGroupList": [
+        "Users"
+    ],
     "dependsOn": [],
     "thirdPartyAuth": true,
     "userPoolGroups": false,

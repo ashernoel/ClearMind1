@@ -6,6 +6,9 @@
 //  Copyright © 2019 Asher Noel. All rights reserved.
 //
 
+
+// This class has not been changed
+
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {

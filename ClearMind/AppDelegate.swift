@@ -6,6 +6,7 @@
 //  Copyright © 2019 Asher Noel. All rights reserved.
 //
 
+// Import all of the AWS necessities and goodness
 import UIKit
 import AWSMobileClient
 import AWSPinpoint
@@ -22,6 +23,7 @@ import AWSAppSync
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
+    // Initialize variables for AWS
     var pinpoint: AWSPinpoint?
     var appSyncClient: AWSAppSyncClient?
     
@@ -55,12 +57,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
           }
         }
 
-        // Initialize Pinpoint
+        // Initialize Pinpoint for Analytics tracking and notifications
         let pinpointConfiguration = AWSPinpointConfiguration.defaultPinpointConfiguration(launchOptions: launchOptions)
         pinpoint = AWSPinpoint(configuration: pinpointConfiguration)
     
+        // Attempt to register for push notificatios when running on a simulator
         registerForPushNotifications()
-        
+                
+        runMutation()
         
         do {
             // You can choose the directory in which AppSync stores its persistent cache databases
@@ -76,11 +80,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             print("Error initializing appsync client. \(error)")
         }
         
-        
-        
         return AWSMobileClient.default().interceptApplication(
              application, didFinishLaunchingWithOptions:
              launchOptions)
+        
+    }
+    
+    func runMutation(){
+        print("starting mutation")
+        let mutationInput = CreateRecordingInput(content: "hello")
+        appSyncClient?.perform(mutation: CreateRecordingMutation(input: mutationInput)) { (result, error) in
+            if let error = error as? AWSAppSyncClientError {
+                print("Error occurred: \(error.localizedDescription )")
+            }
+            if let resultError = result?.errors {
+                print("Error saving the item on server: \(resultError)")
+                return
+            }
+            print("Mutation complete.")
+        }
         
     }
 
@@ -98,12 +116,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
     
+    
+    // MARK:  -- Push Notifications
+    // The following three functions register for push notifications
+    //
     func application(
         _ application: UIApplication,
         didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
 
         pinpoint!.notificationManager.interceptDidRegisterForRemoteNotifications(
             withDeviceToken: deviceToken)
+     
     }
 
     func application(
@@ -140,6 +163,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             }
         }
     }
+    
+    
     
 }
 

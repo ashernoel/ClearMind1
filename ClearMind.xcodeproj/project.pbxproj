@@ -19,6 +19,9 @@
 		FF6E2723239CB8AF00CD5C2B /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6E271C239CB8AF00CD5C2B /* Todo.swift */; };
 		FF6E2724239CB8AF00CD5C2B /* Recording+Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6E271D239CB8AF00CD5C2B /* Recording+Schema.swift */; };
 		FF6E2726239CE7B800CD5C2B /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6E2725239CE7B800CD5C2B /* API.swift */; };
+		FF6E2728239CF0EB00CD5C2B /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6E2727239CF0EB00CD5C2B /* HistoryViewController.swift */; };
+		FF6E272A239D81CF00CD5C2B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6E2729239D81CF00CD5C2B /* ProfileViewController.swift */; };
+		FF6E272C239D8FBF00CD5C2B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6E272B239D8FBF00CD5C2B /* SettingsViewController.swift */; };
 		FF7C58F1239B28B20013CBAB /* ClearMind Watch App Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = FF7C58F0239B28B20013CBAB /* ClearMind Watch App Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		FFB10DEE23974A1F000C71EF /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = FFB10DED23974A1F000C71EF /* awsconfiguration.json */; };
 		FFB10E262397ACBD006A6E70 /* RecordViewController .swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB10E252397ACBD006A6E70 /* RecordViewController .swift */; };
@@ -98,6 +101,9 @@
 		FF6E271C239CB8AF00CD5C2B /* Todo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Todo.swift; path = models/Todo.swift; sourceTree = "<group>"; };
 		FF6E271D239CB8AF00CD5C2B /* Recording+Schema.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Recording+Schema.swift"; path = "models/Recording+Schema.swift"; sourceTree = "<group>"; };
 		FF6E2725239CE7B800CD5C2B /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		FF6E2727239CF0EB00CD5C2B /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		FF6E2729239D81CF00CD5C2B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		FF6E272B239D8FBF00CD5C2B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		FF7C58E4239B28B10013CBAB /* ClearMind Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ClearMind Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF7C58F0239B28B20013CBAB /* ClearMind Watch App Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "ClearMind Watch App Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFB10DED23974A1F000C71EF /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = SOURCE_ROOT; };
@@ -218,6 +224,9 @@
 				FFBE598A2395F5E300A9FD53 /* SceneDelegate.swift */,
 				FFB10E252397ACBD006A6E70 /* RecordViewController .swift */,
 				FFB10E2D2397CC29006A6E70 /* VoiceClassifier2.swift */,
+				FF6E2729239D81CF00CD5C2B /* ProfileViewController.swift */,
+				FF6E2727239CF0EB00CD5C2B /* HistoryViewController.swift */,
+				FF6E272B239D8FBF00CD5C2B /* SettingsViewController.swift */,
 				FFBE598C2395F5E300A9FD53 /* ViewController.swift */,
 				FFBE598E2395F5E300A9FD53 /* Main.storyboard */,
 				FFBE59912395F5E500A9FD53 /* Assets.xcassets */,
@@ -513,13 +522,16 @@
 				FF6E2721239CB8AF00CD5C2B /* AmplifyModels.swift in Sources */,
 				FF6E26F7239C21EB00CD5C2B /* GenderSoundClassification.mlmodel in Sources */,
 				FFB10E262397ACBD006A6E70 /* RecordViewController .swift in Sources */,
+				FF6E2728239CF0EB00CD5C2B /* HistoryViewController.swift in Sources */,
 				FF6E2722239CB8AF00CD5C2B /* Todo+Schema.swift in Sources */,
 				FFB10E2E2397CC29006A6E70 /* VoiceClassifier2.swift in Sources */,
+				FF6E272A239D81CF00CD5C2B /* ProfileViewController.swift in Sources */,
 				FF6E271E239CB8AF00CD5C2B /* User+Schema.swift in Sources */,
 				FF6E2726239CE7B800CD5C2B /* API.swift in Sources */,
 				FF6E2720239CB8AF00CD5C2B /* Recording.swift in Sources */,
 				FF6E2723239CB8AF00CD5C2B /* Todo.swift in Sources */,
 				FF6E271F239CB8AF00CD5C2B /* User.swift in Sources */,
+				FF6E272C239D8FBF00CD5C2B /* SettingsViewController.swift in Sources */,
 				FFBE598D2395F5E300A9FD53 /* ViewController.swift in Sources */,
 				FFBE59892395F5E300A9FD53 /* AppDelegate.swift in Sources */,
 				FFBE598B2395F5E300A9FD53 /* SceneDelegate.swift in Sources */,

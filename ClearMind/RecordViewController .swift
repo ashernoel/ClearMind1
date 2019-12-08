@@ -11,9 +11,9 @@ import UIKit
 import Speech
 import AWSAppSync
 
-
 class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
     
+    // Inititialzie the speech recognition
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "en-US"))!
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
@@ -140,15 +140,18 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
             recordButton.isEnabled = false
             recordButton.setTitle("Stopping", for: .disabled)
             
+            runMutation()
+            print("tried to run mutation")
         } else {
             try! startRecording()
             recordButton.setTitle("Stop recording", for: [])
-        
+            
         }
     }
     
     func runMutation(){
-        let mutationInput = CreateRecordingInput(content: "Use AppSync")
+        print("starting mutation")
+        let mutationInput = CreateRecordingInput(content: "hello")
         appSyncClient?.perform(mutation: CreateRecordingMutation(input: mutationInput)) { (result, error) in
             if let error = error as? AWSAppSyncClientError {
                 print("Error occurred: \(error.localizedDescription )")
@@ -159,6 +162,7 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
             }
             print("Mutation complete.")
         }
+        
     }
     
 }

@@ -25,7 +25,6 @@ class ViewController: UIViewController {
             }
         }
         
-        AWSMobileClient.default().signOut()
         
         AWSMobileClient.default()
                    .showSignIn(navigationController: self.navigationController!,
@@ -56,6 +55,11 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         performSegue(withIdentifier: "enterApp", sender: self)
+    }
+    
+    // Remove the navigation bar
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
     }
 
 
