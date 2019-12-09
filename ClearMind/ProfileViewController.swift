@@ -6,6 +6,8 @@
 //  Copyright © 2019 Asher Noel. All rights reserved.
 //
 
+// The main function of this view controller is to make a BEAUTIFUL profile page.
+
 import SafariServices
 import AWSMobileClient
 import AWSAuthCore
@@ -13,17 +15,19 @@ import AWSAuthUI
 
 class ProfileCell: UITableViewCell
 {
-
+    // MARK: - IBOutlets
     @IBOutlet var photoContainer: UIView!
     @IBOutlet var itemButton: UIButton!
     @IBOutlet var itemTitle: UILabel!
     @IBOutlet var itemDescription: UILabel!
     @IBOutlet var backgroundImage: UIImageView!
     
+    // Define each cell programmatically
     func populateItem (entry: [String]) {
         itemTitle.text = entry[0]
         itemDescription.text = entry[1]
         
+        // Add a shadow to the overall container
         photoContainer.layer.cornerRadius = 10
         photoContainer.layer.cornerRadius = 10
         photoContainer.layer.shadowOpacity = 0.35
@@ -31,26 +35,22 @@ class ProfileCell: UITableViewCell
         photoContainer.layer.shadowOffset = CGSize(width: 0, height: 6)
         photoContainer.layer.shadowColor = UIColor(red: 30/255.0, green: 30/255.0, blue: 30/255.0, alpha: 1).cgColor
         
+        // Add a slight shadow to the title
         itemTitle.layer.shadowOffset = CGSize(width: 0, height: 0)
         itemTitle.layer.shadowOpacity = 1
         itemTitle.layer.shadowRadius = 6
         itemTitle.shadowColor = UIColor.black
         
-   
-        
+        // Put the appropriate photo in each cell
         if entry[0] == "Logout" {
             
             photoContainer.backgroundColor = UIColor.red
-            
             backgroundImage.image = UIImage(named:"logoutPhoto")
-            
-            
             
         } else if entry[0] == "Settings" {
             
             photoContainer.backgroundColor = UIColor.green
-    
-             backgroundImage.image = UIImage(named:"settingsPhoto")
+            backgroundImage.image = UIImage(named:"settingsPhoto")
             
         } else if entry[0] == "Learn More" {
             
@@ -60,10 +60,13 @@ class ProfileCell: UITableViewCell
     }
 }
 
+// This view controller will make the cells
+//
 class ProfileViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
+    // The text for the page
     var profileInformation = [["Logout", "Re-initiate login sequence"], ["Settings", "Change app settings"], ["Learn More", "View the project source code on Github"]]
     
     override func viewDidLoad() {
@@ -75,12 +78,13 @@ class ProfileViewController: UIViewController {
         self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
     }
     
-    // Remove the navigation bar
+    // Remove the navigation bar from the profile page
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
     }
 }
 
+// The table view functions are standard
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource, SFSafariViewControllerDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -97,9 +101,9 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource, SFS
         cell.populateItem(entry: entry)
         cell.selectionStyle = UITableViewCell.SelectionStyle.none
         
+        // Add different functions to the buttons in each cell depending on the title
         if entry[0] == "Logout" {
             cell.itemButton.addTarget(self, action: #selector(self.logout), for: .touchUpInside)
-            
         } else if entry[0] == "Learn More" {
             cell.itemButton.addTarget(self, action: #selector(self.learnMore), for: .touchUpInside)
         } else if entry[0] == "Settings" {
@@ -109,14 +113,13 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource, SFS
         return cell
     }
     
+    // Logout and then segue back to the initial view controller for the login sequence
     @objc func logout () {
         AWSMobileClient.default().signOut()
-        
-    
-        
         performSegue(withIdentifier: "logoutSegue", sender: self)
     }
     
+    // Open up github
     @objc func learnMore() {
           guard let url = URL(string: "https://www.github.com/ashernoel/ClearMind") else {
               return
@@ -130,6 +133,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource, SFS
           
       }
     
+    // Navigate to a different view controller
     @objc func settingsSegue() {
         performSegue(withIdentifier: "settingsSegue", sender: self)
     }

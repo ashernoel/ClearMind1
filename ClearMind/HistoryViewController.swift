@@ -5,18 +5,26 @@
 //  Created by Asher Noel on 12/8/19.
 //  Copyright © 2019 Asher Noel. All rights reserved.
 //
+
+// The main function of this view controller and table view cell is to present PAST recordings and let them be 1) editable and 2) searchable!!
+
 import AWSAppSync
 import UIKit
 
+// This specificies how each recording appears
+//
 class RecordingCell: UITableViewCell, UITextViewDelegate {
     
+    // The text is a text view so that it is editable
     @IBOutlet var recordingText: UITextView!
     
     // The app's AppSyncClient, used to fetch initial comment data and subscribe to new comments
     var appSyncClient: AWSAppSyncClient?
    
+    // The table view stores the ID so that it can mutate the recording
     var recordingId: GraphQLID = ""
     
+    // This function makes sure that the cell connects to AWS
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -26,20 +34,15 @@ class RecordingCell: UITableViewCell, UITextViewDelegate {
         appSyncClient = appDelegate.appSyncClient
     }
     
+    // This populates the cell with values from the table cell
     func updateValues(recording: String?) {
         
-        
+        createToolbar()
         recordingText.delegate = self
         recordingText.text = recording
     }
     
-    func textViewDidEndEditing(_ textView: UITextView) {
-        
-        runUpdateRecording()
-        
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
-    }
-    
+    // This mutates the recording with the EDITED information
     func runUpdateRecording(){
         appSyncClient?.perform(mutation: UpdateRecordingMutation(input: UpdateRecordingInput(id: recordingId, content: recordingText.text)))  { (result, error) in
             if let error = error as? AWSAppSyncClientError {
@@ -53,9 +56,40 @@ class RecordingCell: UITableViewCell, UITextViewDelegate {
         }
     }
     
+    // This creates a toolbar and "Save" button when editing a recording
+    func createToolbar()
+    {
+        // Create the toolbar
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        
+        // Add the done button
+        let doneButton = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(RecordingCell.dismissKeyboard))
+         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil)
+        
+        // Adjust the colors and present the done button as a subjview
+        doneButton.tintColor = UIColor(red:0.00, green:0.69, blue:1.00, alpha:1.0)
+        toolBar.setItems([flexibleSpace, doneButton], animated: false)
+        toolBar.isUserInteractionEnabled = true
+        recordingText.inputAccessoryView = toolBar
+    }
+    
+    // This updates the recording cell and there rest of the table view
+    @objc func dismissKeyboard()
+    {
+        // Dismiss the keyboard
+        recordingText.endEditing(true)
+        
+        // Update the table using a mutation
+        runUpdateRecording()
+    
+    }
+    
  
 }
 
+// This is the main view controller for the past recordings
+//
 class HistoryViewController: UIViewController, UISearchBarDelegate {
     // MARK: - IBOutlets
     
@@ -66,7 +100,7 @@ class HistoryViewController: UIViewController, UISearchBarDelegate {
     // MARK: - Variables
     var appSyncClient: AWSAppSyncClient?
 
-    
+    // These variables ensure speed
     var nextToken: String?
     var fixedLimit: Int = 20 // predefined pagination size
     var isLoadInProgress: Bool = false
@@ -75,6 +109,7 @@ class HistoryViewController: UIViewController, UISearchBarDelegate {
 
     var recordingList: [ListRecordingsQuery.Data.ListRecording.Item?] = []
 
+    // This function update the table view upon refreshing
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self,
@@ -84,9 +119,10 @@ class HistoryViewController: UIViewController, UISearchBarDelegate {
         return refreshControl
     }()
 
+    // This function always fetches new data from AWS before populating the table view.
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
         nextToken = nil
-        fetchAllRecordingsUsingCachePolicy(.fetchIgnoringCacheData)
+        fetchAllRecordingsUsingCachePolicy(.returnCacheDataAndFetch)
     }
 
     // MARK: - Controller delegates
@@ -104,11 +140,13 @@ class HistoryViewController: UIViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // This is the standard code that syncs the class with AWS
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
         appSyncClient = appDelegate.appSyncClient
 
+        // Standard delegate assignment
         tableView.dataSource = self
         tableView.delegate = self
         searchBar.delegate = self
@@ -116,14 +154,15 @@ class HistoryViewController: UIViewController, UISearchBarDelegate {
         tableView.refreshControl = refreshControl
         tableView.allowsSelection = false
 
-
+        // We want all of teh data at first
         fetchAllRecordingsUsingCachePolicy(.returnCacheDataAndFetch)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
-        
+            
     }
 
     // MARK: - Queries
+    
+    // The first function gets a list of all of the current recordings from AWS
+    //
     func fetchAllRecordingsUsingCachePolicy(_ cachePolicy: CachePolicy) {
         if isLoadInProgress {
             return
@@ -133,6 +172,7 @@ class HistoryViewController: UIViewController, UISearchBarDelegate {
 
         refreshControl.beginRefreshing()
         
+        // There is no filter on this query: it grabs all of the results
         let listQuery = ListRecordingsQuery(limit: fixedLimit, nextToken: nextToken)
 
         appSyncClient?.fetch(query: listQuery, cachePolicy: cachePolicy) { result, error in
@@ -157,7 +197,8 @@ class HistoryViewController: UIViewController, UISearchBarDelegate {
                 .filter { !existingKeys.contains($0.id) }
 
             self.recordingList.append(contentsOf: newItems ?? [])
-
+            
+            // Update data and the rest of the table
             self.tableView.reloadData()
 
             self.nextToken = result?.data?.listRecordings?.nextToken
@@ -167,6 +208,7 @@ class HistoryViewController: UIViewController, UISearchBarDelegate {
         }
     }
     
+    // This function works with the SEARCH BAR so that only certain recordings are displayed
     func fetchAllRecordingsUsingSearch(_ searchQuery: String) {
         
         if isLoadInProgress {
@@ -179,6 +221,7 @@ class HistoryViewController: UIViewController, UISearchBarDelegate {
 
         refreshControl.beginRefreshing()
         
+        // This query checks to make sure the content contains the search Query
         let listQuery = ListRecordingsQuery(filter: ModelRecordingFilterInput(content: ModelStringInput(contains: searchQuery)), limit: fixedLimit, nextToken: nextToken)
             
        
@@ -190,6 +233,7 @@ class HistoryViewController: UIViewController, UISearchBarDelegate {
                 return
             }
 
+            // No matter what, get rid of all of the old recordings to make room for only the searched ones.
             self.recordingList.removeAll()
             
 
@@ -203,8 +247,7 @@ class HistoryViewController: UIViewController, UISearchBarDelegate {
 
             self.recordingList.append(contentsOf: newItems ?? [])
 
-            print(self.recordingList)
-            print("reload")
+            // Update the rest of the table view.
             self.tableView.reloadData()
 
             self.nextToken = result?.data?.listRecordings?.nextToken
@@ -279,33 +322,19 @@ extension HistoryViewController: UITableViewDataSource, UITableViewDelegate {
         }
     }
 
-    // click handlers
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        lastOpenedIndex = indexPath.row
-//
-//        guard let recording = recordingList[indexPath.row] else {
-//            return
-//        }
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        guard let controller = storyboard.instantiateViewController(withIdentifier: "RecordingDetailsViewController")
-//            as? RecordingDetailsViewController else {
-//                return
-//        }
-//        controller.event = recording.fragments.recording
-//        navigationController?.pushViewController(controller, animated: true)
-    //}
-    
+    // If the UITextView is multiple lines, then the table view should adjust its height
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 
         return UITableView.automaticDimension
     }
     
+    // Default table view height
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
 
         return 200.0 // You can set any other value, it's up to you
     }
 
-    // pagination
+    // Pagination
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if !isLoadInProgress,
             indexPath.row > recordingList.count - 2,
@@ -314,14 +343,8 @@ extension HistoryViewController: UITableViewDataSource, UITableViewDelegate {
         }
     }
     
-    // Reload the data in the table view remotely
-    @objc func loadList(){
-        //load data here
-        self.tableView.reloadData()
-    }
-    
+    // Implement the search bar and check for the empty string case.
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-      // implement search here
 
         if searchText != "" {
             fetchAllRecordingsUsingSearch(searchText.lowercased())
@@ -332,12 +355,12 @@ extension HistoryViewController: UITableViewDataSource, UITableViewDelegate {
 
     }
     
+    // Dismiss the search bar when done.
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar)
     {
         self.searchBar.endEditing(true)
     }
-
-
+    
 }
 
 

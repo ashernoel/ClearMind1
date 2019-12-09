@@ -6,6 +6,8 @@
 //  Copyright © 2019 Asher Noel. All rights reserved.
 //
 
+// This view controller is the default initial view controller that calls the LOGIN screen
+//
 import UIKit
 import AWSAuthCore
 import AWSAuthUI
@@ -17,6 +19,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        // Initialize the AWS Mobile Client
+        //
         AWSMobileClient.default().initialize { (userState, error) in
             if let userState = userState {
                 print("UserState: \(userState.rawValue)")
@@ -25,7 +29,8 @@ class ViewController: UIViewController {
             }
         }
         
-        
+        // Change the settings on the login screen to match my particular app
+        //
         AWSMobileClient.default()
                    .showSignIn(navigationController: self.navigationController!,
                                     signInUIOptions: SignInUIOptions(
@@ -35,6 +40,8 @@ class ViewController: UIViewController {
                                            //handle results and errors
                }
         
+        // If the user is NOT logged in, then show the LOGIN SCREEN
+        //
         if !AWSSignInManager.sharedInstance().isLoggedIn {
            AWSAuthUIViewController
              .presentViewController(with: self.navigationController!,
