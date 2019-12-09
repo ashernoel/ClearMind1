@@ -1,10 +1,9 @@
 
 # ClearMind 
 
-Welcome to ClearMind! This iOS app functios to transcribe user speech in real-time both in the app and in the background and then store it in a mutable GraphQL DynamoDB database using Amazon Web Services's App Sync that allows for both online and offline usage. 
+Welcome to ClearMind! This iOS app functions to transcribe user speech in real-time both in the app the background before then storing the transcribed data in a mutable GraphQL DynamoDB database using Amazon Web Services App Sync and Amplify that allows for both online and offline usage. 
 
-Because this app works heavily with an Amazon Web Services back-end, a lot of programming was done via the command-line interface and Amazon Web Services website which can not be shown here. In addition, if access to my Amazon Web Services account is required to run this app in full for some reason, and your name is Eric Lin, text me at 2242160676 a.s.a.p. so that I can give you the login information. 
-
+Because this app works heavily with an Amazon Web Services back-end, a lot of programming was done via the command-line interface and the Amazon Web Services website, which can not be shown on github.
 
 ## Getting Started
 
