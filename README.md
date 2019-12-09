@@ -26,6 +26,9 @@ Do Not Edit:
 - awsconfiguration.json: This connects basic functionality of AWS to the app. 
 - amplifyconfiguration.json: This connects AWS Amplify functionality, such as analytics, to the app. 
 - GenderSoundClassification.mlmodel: This is a Core ML machine learning model trained on 32 audio files to classify speech in real time as either male or female. Published online at github.com/anupamchuh/iowncode. 
+- /images/ contains the images for the screenshots
+- The Watch App and Watch App extension were not used in making this app.
+- The ClearMindUI and ClearMindUITests folders were not used in making this app. 
 
 #### ClearMind directory within XCode: 
 Do Not Edit: 
@@ -46,8 +49,7 @@ Other Resources:
 - Assets.xcassets: This folder contains all of the images used in this app. I made the logo in Adobe Illustrator. The iOS Glyphs were free on icons8.com. The other images are liscensed Adobe Stock. As such, all photos are legally reproducible. 
 - Info.plist: This file has the app configuration that allows for background audio recording. 
 
-## Use the App 
-
+## Using the App 
 
 Upon launching the app, the user will be presented with a login screen. This is secured using AWS Cognito User Pools and allows for Facebook sign in as well. The user should login with their facebook, make a new account, or use my sample account with username ashernoel and password ashernoel. 
 
@@ -58,6 +60,25 @@ In the History tab, the user is presented with all of their past recordings. The
 The "Profile" tab lets the user log out, change push notification settings by seguing to a settings view controller, and view the code on Github. It's main function is to logout, but it has a great UI as an unecessary plus. 
 
 If a user runs into any problems running the app, feel free to email me at ashernoel@college.harvard.edu or call or text me at 224-216-0676 with questions or bugs. 
+
+[NOTE]: Although the app has AWS Cognito User Pools, all recordings are stored in the same DynamoDB table, which means that multiple users can access the same batch of recordings across multiple devices. This is a cool way of playing with the cloud instead of locally stored databases. 
+[NOTE]: There is a 0.5 second delay between the end of the recording and when the data gets sent to Amazon, but still sometimes the transcription will update for a second time a few seconds after the audio has stopped and sent the data to DynamoDB. This is because AWS is faster than the speech-to-text transcription model. 
+[NOTE]: When I run this program using the Legacy Build System on my iPhone, I get 47 warning messages, 45 of which are from AWS Cocoa Pods. When I run it on an iPhone 11, I get 48 warning messages, 45 of which are from AWS Cocoa Pods. 
+[NOTE]: A known bug occurs when the record button is clicked too quickly or when nothing is said; in these cases, it is best to close out of the app and open it again.  
+[NOTE]: When editing a recording on a simulator and not an iPhone, there is no "Save" button because there is no keyboard, so recordings may not be editable. 
+
+## Screenshots
+
+To learn more about the design of the app, view the DESIGN.md document in the same directory as README.md
+
+<p align="center">
+
+<img src="/images/login.png" alt="Default Login Screen" width="250"/><img src="/images/record.png" alt="Default Login Screen" width="250"/><img src="/images/history.png" alt="Default Login Screen" width="250"/><img src="/images/profile.png" alt="Default Login Screen" width="250"/>
+
+<img src="/images/edit.png" alt="Default Login Screen" width="250"/><img src="/images/search.png" alt="Default Login Screen" width="250"/><img src="/images/settings.png" alt="Default Login Screen" width="250"/>
+
+
+</p>
 
 ## Built With
 

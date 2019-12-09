@@ -345,8 +345,8 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nUi-wF-Y6X">
                                                             <rect key="frame" x="0.0" y="0.0" width="374" height="228"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FeedbackPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="WWr-5k-h3h">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="32"/>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoutPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="WWr-5k-h3h">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="227.5"/>
                                                                 </imageView>
                                                             </subviews>
                                                             <constraints>
@@ -618,9 +618,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="FeedbackPhoto" width="16" height="16"/>
         <image name="brain" width="30" height="30"/>
         <image name="hourglass" width="30" height="30"/>
+        <image name="logoutPhoto" width="382" height="227.33332824707031"/>
         <image name="profile" width="32" height="32"/>
     </resources>
 </document>

@@ -60,8 +60,7 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
     }
     
     override public func viewDidAppear(_ animated: Bool) {
-       /
-        / Configure the SFSpeechRecognizer object already
+       // Configure the SFSpeechRecognizer object already
        // stored in a local member variable.
        speechRecognizer.delegate = self
 
@@ -184,7 +183,13 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
 
             // Update AWS with the transcription if there are new words
             if textView.text != "(Recording started...)" {
-                runMutation()
+                
+                // Sleep to make sure that the edits go through
+                let seconds = 0.5
+                DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+                    self.runMutation()
+                }
+                
             }
             
             // Change the image to start recording
