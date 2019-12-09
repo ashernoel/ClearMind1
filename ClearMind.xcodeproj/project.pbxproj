@@ -103,6 +103,8 @@
 		FF6E2727239CF0EB00CD5C2B /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		FF6E2729239D81CF00CD5C2B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		FF6E272B239D8FBF00CD5C2B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		FF6E272D239DDFEC00CD5C2B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		FF6E272E239DE03E00CD5C2B /* DESIGN.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = DESIGN.md; sourceTree = "<group>"; };
 		FF7C58E4239B28B10013CBAB /* ClearMind Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ClearMind Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF7C58F0239B28B20013CBAB /* ClearMind Watch App Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "ClearMind Watch App Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFB10DED23974A1F000C71EF /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = SOURCE_ROOT; };
@@ -184,6 +186,8 @@
 			isa = PBXGroup;
 			children = (
 				FF6E2725239CE7B800CD5C2B /* API.swift */,
+				FF6E272D239DDFEC00CD5C2B /* README.md */,
+				FF6E272E239DE03E00CD5C2B /* DESIGN.md */,
 				FF6E26FA239C2CFB00CD5C2B /* awsconfiguration.json */,
 				FF6E26F8239C2CEA00CD5C2B /* amplifyconfiguration.json */,
 				FF6E26F6239C21EB00CD5C2B /* GenderSoundClassification.mlmodel */,
