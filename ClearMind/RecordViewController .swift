@@ -35,7 +35,10 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
     
     //MARK: -IBOUtlets
     @IBOutlet var recordButton: UIButton!
-    @IBOutlet var textView : UITextView!
+    @IBOutlet var textView: UITextView!
+    @IBOutlet var genderClassification: UILabel!
+    @IBOutlet var genderConfidence: UILabel!
+    @IBOutlet var recordImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,12 +53,15 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
         resultsObserver.delegate = self
         inputFormat = audioEngine.inputNode.inputFormat(forBus: 0)
         analyzer = SNAudioStreamAnalyzer(format: inputFormat)
+        
+        // Build the UI
         buildUI()
         
     }
     
     override public func viewDidAppear(_ animated: Bool) {
-       // Configure the SFSpeechRecognizer object already
+       /
+        / Configure the SFSpeechRecognizer object already
        // stored in a local member variable.
        speechRecognizer.delegate = self
 
@@ -94,21 +100,23 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
             self.recognitionTask = nil
         }
 
+        // Start recording
         let audioSession = AVAudioSession.sharedInstance()
         try audioSession.setCategory(AVAudioSession.Category.record)
         try audioSession.setMode(AVAudioSession.Mode.measurement)
         try audioSession.setActive(true)
-
         recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
-
+        
+        // Rename inputnode to make code cleaner
         let inputNode = audioEngine.inputNode
+        
         guard let recognitionRequest = recognitionRequest else { fatalError("Unable to created a SFSpeechAudioBufferRecognitionRequest object") }
 
         // Configure request so that results are returned before audio recording is finished
         recognitionRequest.shouldReportPartialResults = true
 
         // A recognition task represents a speech recognition session.
-        // We keep a reference to the task so that it can be cancelled.
+        // Keep a reference to the task so that it can be cancelled.
         recognitionTask = speechRecognizer.recognitionTask(with: recognitionRequest) { result, error in
             var isFinal = false
 
@@ -124,16 +132,20 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
                 self.recognitionRequest = nil
                 self.recognitionTask = nil
                 self.recordButton.isEnabled = true
-                self.recordButton.setTitle("Start Recording", for: [])
             }
         }
 
         let recordingFormat = inputNode.outputFormat(forBus: 0)
+        
+        // Choose the processes that we want to happen: in our case, these are transcription and classification using two models.
         inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { (buffer: AVAudioPCMBuffer, when: AVAudioTime) in
             self.recognitionRequest?.append(buffer)
+            self.analysisQueue.async {
+                self.analyzer.analyze(buffer, atAudioFramePosition: when.sampleTime)
+            }
         }
         
-        // Start Speech Classifier
+        // Start Speech Classifier with a request
         do {
              let request = try SNClassifySoundRequest(mlModel: soundClassifier.model)
              try analyzer.add(request, withObserver: resultsObserver)
@@ -142,14 +154,8 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
              return
          }
         
-         audioEngine.inputNode.installTap(onBus: 0, bufferSize: 8000, format: inputFormat) { buffer, time in
-                 self.analysisQueue.async {
-                     self.analyzer.analyze(buffer, atAudioFramePosition: time.sampleTime)
-                 }
-         }
-        
-        // Start Audio engine
-
+         
+        // Start the entire Audio engine
         audioEngine.prepare()
         try audioEngine.start()
         textView.text = "(Recording started...)"
@@ -160,10 +166,8 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
     public func speechRecognizer(_ speechRecognizer: SFSpeechRecognizer, availabilityDidChange available: Bool) {
         if available {
             recordButton.isEnabled = true
-            recordButton.setTitle("Start Recording", for: [])
         } else {
             recordButton.isEnabled = false
-            recordButton.setTitle("Recognition not available", for: .disabled)
         }
     }
 
@@ -171,21 +175,26 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
 
     @IBAction func recordButtonTapped() {
         if audioEngine.isRunning {
+            
+            // Stop recording audio and remove the Tap for next time
             audioEngine.stop()
             recognitionRequest?.endAudio()
             recordButton.isEnabled = false
-            recordButton.setTitle("Stopping", for: .disabled)
+            audioEngine.inputNode.removeTap(onBus: 0)
+
+            // Update AWS with the transcription if there are new words
+            if textView.text != "(Recording started...)" {
+                runMutation()
+            }
             
-            // End audio engine for Speech Classifier
-            endAudioEngine()
+            // Change the image to start recording
+            recordImage.image = UIImage(named:"startRecording")
             
-            // Update AWS with the transcription
-            runMutation()
-  
         } else {
-            try! startRecording()
-            recordButton.setTitle("Stop recording", for: [])
             
+            // Do the opposite of the above
+            try! startRecording()
+            recordImage.image = UIImage(named:"stopRecording")
 
         }
     }
@@ -206,58 +215,25 @@ class RecordViewController: UIViewController, SFSpeechRecognizerDelegate {
         
     }
     
-    let transcribedText:UILabel = {
-        let view = UILabel()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.contentMode = .center
-        view.textAlignment = .center
-        view.numberOfLines = 0
-        view.font = UIFont.systemFont(ofSize: 20)
-        return view
-    }()
-    
-    let placeholderText:UILabel = {
-        let view = UILabel()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.contentMode = .center
-        view.textAlignment = .center
-        view.numberOfLines = 0
-        view.text = "Gender Classification by\nSound as you Speak..."
-        view.font = UIFont.systemFont(ofSize: 25)
-        return view
-    }()
-
-    
     func buildUI()
     {
-        self.view.addSubview(placeholderText)
-        self.view.addSubview(transcribedText)
-
-        NSLayoutConstraint.activate(
-            [transcribedText.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-             transcribedText.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-             transcribedText.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-             transcribedText.heightAnchor.constraint(equalToConstant: 100),
-             transcribedText.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-            ]
-        )
         
-        NSLayoutConstraint.activate(
-            [placeholderText.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-             placeholderText.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-             placeholderText.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-             placeholderText.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-            ]
-        )
-       
+        // This changes the background image
+        recordButton.isEnabled = true
+        if audioEngine.isRunning {
+            recordImage.image = UIImage(named:"stopRecording")
+        } else {
+            recordImage.image = UIImage(named:"startRecording")
+        }
+        
     }
     
-    private func endAudioEngine() {
-        audioEngine.isAutoShutdownEnabled = true
-        audioEngine.inputNode.removeTap(onBus: 0)
-    }
+    
+
 }
 
+// These three blocks display the result of the classification model to the user. 
+//
 protocol GenderClassifierDelegate {
     func displayPredictionResult(identifier: String, confidence: Double)
 }
@@ -265,7 +241,8 @@ protocol GenderClassifierDelegate {
 extension RecordViewController: GenderClassifierDelegate {
     func displayPredictionResult(identifier: String, confidence: Double) {
         DispatchQueue.main.async {
-            self.transcribedText.text = ("Recognition: \(identifier)\nConfidence \(confidence)")
+            self.genderClassification.text = "\(identifier)"
+            self.genderConfidence.text = "\(Double(round(100*confidence)/100))"
         }
     }
 }
