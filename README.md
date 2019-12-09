@@ -73,9 +73,11 @@ To learn more about the design of the app, view the DESIGN.md document in the sa
 
 <p align="center">
 
-<img src="/images/login.png" alt="Default Login Screen" width="250"/><img src="/images/record.png" alt="Default Login Screen" width="250"/><img src="/images/history.png" alt="Default Login Screen" width="250"/><img src="/images/profile.png" alt="Default Login Screen" width="250"/>
+<img src="/images/login.png" alt="Default Login Screen" width="300"/><img src="/images/record.png" alt="Default Login Screen" width="300"/>
 
-<img src="/images/edit.png" alt="Default Login Screen" width="250"/><img src="/images/search.png" alt="Default Login Screen" width="250"/><img src="/images/settings.png" alt="Default Login Screen" width="250"/>
+<img src="/images/history.png" alt="Default Login Screen" width="300"/><img src="/images/profile.png" alt="Default Login Screen" width="300"/>
+
+<img src="/images/edit.png" alt="Default Login Screen" width="300"/><img src="/images/search.png" alt="Default Login Screen" width="300"/>
 
 
 </p>
